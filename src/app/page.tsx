@@ -1,6 +1,9 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Services from "@/components/services";
+import AboutUsSection from "@/components/about-section";
+import ProjectsSection from "@/components/projects-section";
+
 export default function Home() {
   return (
     <div>
@@ -8,6 +11,8 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <AboutUsSection />
+        <ProjectsSection />
       </main>
     </div>
   );
