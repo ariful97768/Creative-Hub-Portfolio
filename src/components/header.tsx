@@ -13,7 +13,7 @@ export default function Header() {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
 
-      if (scrollTop >= 700) {
+      if (scrollTop >= 500) {
         setIsFloating(true);
       } else {
         setIsFloating(false);

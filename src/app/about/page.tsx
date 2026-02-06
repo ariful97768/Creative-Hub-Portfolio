@@ -1,4 +1,4 @@
-"use client";
+
 import aboutImage from "@/assets/about-banner.jpg";
 import templateImg1 from "@/assets/template-img-1.jpg";
 import templateImg2 from "@/assets/template-img-2.jpg";
@@ -7,6 +7,11 @@ import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import TeamSection from "@/components/teams-section";
+import badge from "@/assets/icon-badge.png";
+import clients from "@/assets/icon-clients.png";
+import happyClient from "@/assets/icon-happy-client.png";
+import handStar from "@/assets/icon-hand-star.png";
+import Testimonials from "@/components/testimonials";
 
 export default function AboutUsPage() {
   return (
@@ -85,6 +90,77 @@ export default function AboutUsPage() {
         </section>
         {/* Team section */}
         <TeamSection />
+        {/* Success section */}
+        <section className="mb-25">
+          <div className="flex max-w-max mx-auto py-13 px-20 gap-21 bg-light-blue rounded-xl">
+            <div className="max-w-max space-y-6">
+              <div className="bg-dark flex mx-auto items-center justify-center w-50 h-50 rounded-full">
+                <Image
+                  src={badge}
+                  height={100}
+                  className="object-contain"
+                  alt="Success Image"
+                />
+              </div>
+              <div>
+                <h2 className="text-center leading-14 text-[32px] font-semibold">
+                  Winning award <br />
+                  30+
+                </h2>
+              </div>
+            </div>
+            <div className="max-w-max space-y-6">
+              <div className="bg-dark flex mx-auto items-center justify-center w-50 h-50 rounded-full">
+                <Image
+                  src={happyClient}
+                  height={100}
+                  className="object-contain"
+                  alt="Success Image"
+                />
+              </div>
+              <div>
+                <h2 className="text-center leading-14 text-[32px] font-semibold">
+                  Happy Client <br />
+                  180+
+                </h2>
+              </div>
+            </div>
+            <div className="max-w-max space-y-6">
+              <div className="bg-dark flex mx-auto items-center justify-center w-50 h-50 rounded-full">
+                <Image
+                  src={handStar}
+                  height={100}
+                  className="object-contain"
+                  alt="Success Image"
+                />
+              </div>
+              <div>
+                <h2 className="text-center leading-14 text-[32px] font-semibold">
+                  Complete project <br />
+                  300+
+                </h2>
+              </div>
+            </div>
+            <div className="max-w-max space-y-6">
+              <div className="bg-dark flex mx-auto items-center justify-center w-50 h-50 rounded-full">
+                <Image
+                  src={clients}
+                  height={100}
+                  className="object-contain"
+                  alt="Success Image"
+                />
+              </div>
+              <div>
+                <h2 className="text-center leading-14 text-[32px] font-semibold">
+                  Client review <br />
+                  484+
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Testimonials section */}
+        <Testimonials />
       </div>
     </main>
   );
