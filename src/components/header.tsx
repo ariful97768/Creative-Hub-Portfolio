@@ -46,7 +46,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link className="hover:text-primary" href="/#about">
+              <Link className="hover:text-primary" href="/about">
                 About
               </Link>
             </li>
