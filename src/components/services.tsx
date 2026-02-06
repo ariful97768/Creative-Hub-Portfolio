@@ -8,7 +8,7 @@ import icon5 from "@/assets/icon-5.png";
 import icon6 from "@/assets/icon-6.png";
 export default function Services() {
   return (
-    <section className="pb-20 pt-17">
+    <section className="pb-20 px-14 pt-17">
       <SectionTitle
         align="center"
         heading="Explore Our Best Premium Quality Service"

@@ -18,7 +18,8 @@ export default function ServiceCard({
 }) {
   return (
     <div
-      className={`px-3.5 max-w-106 py-6 text-center rounded-3xl bg-[${bgColor}] flex flex-col items-center justify-center`}
+      style={{ backgroundColor: bgColor }}
+      className={`px-3.5 max-w-106 py-6 text-center rounded-3xl flex flex-col items-center justify-center`}
     >
       <div className="flex flex-col items-center justify-center gap-4 max-w-72 mx-auto">
         <div
@@ -33,7 +34,7 @@ export default function ServiceCard({
           {title}
         </h3>
       </div>
-      <span className={`mt-4.5 mb-5 px-10 py-0.5 bg-blue-light `}></span>
+      <span className={`mt-4.5 mb-5 px-10 py-0.5 bg-primary`}></span>
       <div className="space-y-3 grow px-10">
         <p className="font-medium">{text}</p>
         <ul className="text-start">

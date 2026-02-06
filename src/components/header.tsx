@@ -7,7 +7,7 @@ import Button from "./ui/button";
 export default function Header() {
   return (
     <nav className="sticky top-0 z-50 w-full bg-white">
-      <div className="max-w-7xl mx-auto flex py-3 items-center justify-between px-10">
+      <div className="max-w-360 mx-auto flex py-3 items-center justify-between px-10">
         {/* Logo */}
         <div>
           <Link href={"/"}>
@@ -18,32 +18,32 @@ export default function Header() {
         <div>
           <ul className="flex items-center gap-8 text-xl font-semibold">
             <li>
-              <Link className="hover:text-blue-light" href="/">
+              <Link className="hover:text-primary" href="/">
                 Home
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-light" href="/#about">
+              <Link className="hover:text-primary" href="/#about">
                 About
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-light" href="/#services">
+              <Link className="hover:text-primary" href="/#services">
                 Services
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-light" href="/#projects">
+              <Link className="hover:text-primary" href="/#projects">
                 Client Projects
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-light" href="/#team">
+              <Link className="hover:text-primary" href="/#team">
                 Our Team
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-light" href="/#contact">
+              <Link className="hover:text-primary" href="/#contact">
                 Contact Us
               </Link>
             </li>

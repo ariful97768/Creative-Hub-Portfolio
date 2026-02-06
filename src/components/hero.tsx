@@ -6,10 +6,10 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="flex items-center bg-linear-to-b from-bgGradient to-[#C3E5FE57]/34 w-full">
-      <div className="relative w-full py-20 max-w-7xl mx-auto flex justify-end">
-        <div className="absolute top-1/2 -translate-y-1/2 space-y-8 w-2/3 left-0">
+      <div className="relative w-full py-20 max-w-360 mx-auto flex justify-end">
+        <div className="absolute top-1/2 -translate-y-1/2 px-14 space-y-8 w-2/3 left-0">
           <div>
-            <h3 className="text-2xl font-semibold text-blue-light">
+            <h3 className="text-2xl font-semibold text-primary">
               Smart Solutions
             </h3>
             <h1 className="text-5xl pt-4 pb-3 leading-16 font-bold text-dark">
