@@ -1,4 +1,3 @@
-import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Services from "@/components/services";
 import AboutUsSection from "@/components/about-section";
@@ -7,15 +6,12 @@ import Testimonials from "@/components/testimonials";
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <AboutUsSection />
-        <ProjectsSection />
-        <Testimonials />
-      </main>
-    </div>
+    <main>
+      <Hero />
+      <Services />
+      <AboutUsSection />
+      <ProjectsSection />
+      <Testimonials />
+    </main>
   );
 }

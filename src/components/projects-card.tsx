@@ -19,9 +19,9 @@ export default function ProjectsCard({
   return (
     <div
       style={{ backgroundColor: bgColor }}
-      className="flex flex-col items-center max-w-162.5 gap-10"
+      className="flex flex-col items-center max-w-162.5 shadow-lg border border-gray-200 gap-10 rounded-xl"
     >
-      <div className="w-full relative h-64 rounded-b-lg shrink-0 overflow-hidden">
+      <div className="w-full relative h-64 rounded-xl shrink-0 overflow-hidden">
         <Image src={img} fill className="object-cover" alt="Project Image" />
       </div>
       <div className="px-3.5 h-full flex flex-col pb-4 space-y-7">
