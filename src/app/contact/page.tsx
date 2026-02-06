@@ -1,6 +1,7 @@
 "use client";
 import contactImg from "@/assets/contact.jpg";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   Facebook,
   Instagram,
@@ -9,7 +10,12 @@ import {
   MapPin,
   PhoneCall,
 } from "lucide-react";
-import MapSection from "@/components/map";
+
+// Dynamic import with SSR disabled - Leaflet requires window object
+const MapSection = dynamic(() => import("@/components/map"), {
+  ssr: false,
+  loading: () => <div className="h-72 md:h-137 bg-gray-200 animate-pulse" />,
+});
 
 export default function ContactUsPage() {
   return (
@@ -26,7 +32,6 @@ export default function ContactUsPage() {
       </section>
       {/* <section className="max-w-360 px-14">
         <div>
-         
           <div className="flex flex-col py-11 pl-5 pr-33 bg-dark max-w-max text-white rounded-xl">
             <div className="space-y-3 mb-20">
               <h3 className="text-3xl font-bold">
@@ -108,7 +113,7 @@ export default function ContactUsPage() {
         </div>
       </section> */}
       <section className="max-w-360 mx-auto">
-        <MapSection/>
+        <MapSection />
       </section>
     </main>
   );

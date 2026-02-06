@@ -8,6 +8,7 @@ import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import { useEffect } from "react";
 
 // Fix default icon issues in Leaflet
+// This method removes the default `Zoom in/out` icon and adds the custom icon at the bottom right
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: markerIcon2x,
@@ -15,6 +16,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
+// Custom Zoom Control
 const CustomZoomControl = ({
   position = "topright",
 }: {
@@ -42,6 +44,7 @@ export default function MapSection() {
         zoomControl={false}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        {/* Add Creative Hub IT's Latitude and Longitude here and at the MapContainer*/}
         <Marker position={[24.374981, 91.410133]}>
           {/* Add custom text to display when clicked on the map icon */}
           <Popup>Creative Hub IT</Popup>
