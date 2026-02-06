@@ -74,7 +74,7 @@ export default function Header() {
         </div>
         {/* Contact Button */}
         <div className="flex items-center">
-          <Link href={"#"}>
+          <Link href={"/contact"}>
             <Button variant={"primary"}>
               Get A Quote
               <MoveRight />
