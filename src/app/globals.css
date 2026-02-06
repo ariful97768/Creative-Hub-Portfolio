@@ -11,10 +11,13 @@
   --font-sans: var(--font-nunito);
   /* Custom Colors */
   --color-accent: #0D57B6;
-  --color-blue-light: #1651A9;
-  --color-blue-dark: #064BAD;
+  --color-primary: #1651A9;
   --color-bgGradient: #B3DFFE;
   --color-dark: #222222;
+  --color-light-yellow: #F9F8DA;
+  --color-light-red: #FFF3F3;
+  --color-light-blue: #E8FBFF;
+  /* --color-blue-dark: #064BAD; */
 }
 
 /* @media (prefers-color-scheme: dark) {
