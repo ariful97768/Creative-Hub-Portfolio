@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Nunito, Orbitron } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
+});
+
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+  weight: "700",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito.variable}`}>{children}</body>
+      <body className={`${nunito.variable} ${orbitron.variable}`}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
