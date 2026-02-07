@@ -3,9 +3,11 @@ import { ReactNode } from "react";
 export default function Button({
   children,
   variant,
+  className,
 }: {
   children: Readonly<ReactNode>;
   variant: "primary" | "secondary" | "rounded" | "action";
+  className?: string;
 }) {
   const classNames = {
     primary:
@@ -19,7 +21,10 @@ export default function Button({
   };
   return (
     <button
-      className={`${classNames[variant]} group hover:cursor-pointer active:scale-97 transition duration-300`}
+      className={
+        `${classNames[variant]} group hover:cursor-pointer active:scale-97 transition duration-300 ` +
+        className
+      }
     >
       {children}
     </button>
