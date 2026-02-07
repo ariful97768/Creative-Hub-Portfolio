@@ -9,7 +9,7 @@ export default function SectionTitle({
 }) {
   return (
     <div
-      className={`${align === "left" ? "" : "text-center mx-auto"} space-y-3 max-w-121.5`}
+      className={`${align === "left" ? "text-left" : "text-center mx-auto"} space-y-3 max-w-121.5`}
     >
       {/* Subheading */}
       <h4
