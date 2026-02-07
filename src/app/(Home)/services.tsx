@@ -1,5 +1,5 @@
-import ServiceCard from "./service-card";
-import SectionTitle from "./ui/section-title";
+import ServiceCard from "@/components/service-card";
+import SectionTitle from "@/components/ui/section-title";
 import icon1 from "@/assets/icon-1.png";
 import icon2 from "@/assets/icon-2.png";
 import icon3 from "@/assets/icon-3.png";

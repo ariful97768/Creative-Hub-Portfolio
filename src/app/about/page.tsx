@@ -1,8 +1,8 @@
-import TeamSection from "@/components/teams-section";
 import Testimonials from "@/components/testimonials";
 import AboutBanner from "./banner";
 import AboutUsSection from "./about-section";
 import SuccessSection from "./success";
+import TeamSection from "./teams-section";
 
 export default function AboutUsPage() {
   return (

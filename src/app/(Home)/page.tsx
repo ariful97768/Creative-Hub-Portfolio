@@ -1,7 +1,7 @@
-import Hero from "@/components/hero";
-import Services from "@/components/services";
-import AboutUsSection from "@/components/about-section";
-import ProjectsSection from "@/components/projects-section";
+import Hero from "@/app/(Home)/hero";
+import Services from "@/app/(Home)/services";
+import AboutUsSection from "@/app/(Home)/about-section";
+import ProjectsSection from "@/app/(Home)/projects-section";
 import Testimonials from "@/components/testimonials";
 
 export default function Home() {

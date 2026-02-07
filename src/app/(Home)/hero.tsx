@@ -1,7 +1,7 @@
 import Image from "next/image";
 import heroImg from "@/assets/hero-banner.png";
 import { MoveRight } from "lucide-react";
-import Button from "./ui/button";
+import Button from "@/components/ui/button";
 import Link from "next/link";
 export default function Hero() {
   return (

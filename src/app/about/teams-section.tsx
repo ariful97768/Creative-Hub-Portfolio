@@ -4,9 +4,9 @@ import { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import teamMember1 from "@/assets/team-1.jpg";
 import teamMember2 from "@/assets/team-2.png";
-import SectionTitle from "./ui/section-title";
+import SectionTitle from "@/components/ui/section-title";
 import { MoveLeft, MoveRight } from "lucide-react";
-import TeamCard from "./team-card";
+import TeamCard from "@/components/team-card";
 
 // Team Section with Embla Carousel
 export default function TeamSection() {

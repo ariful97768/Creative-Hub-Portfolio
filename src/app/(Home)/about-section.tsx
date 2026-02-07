@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SectionTitle from "./ui/section-title";
+import SectionTitle from "@/components/ui/section-title";
 import templateImg from "@/assets/template-img-2.jpg";
 export default function AboutUsSection() {
   return (

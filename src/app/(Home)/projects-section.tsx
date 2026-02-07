@@ -1,8 +1,8 @@
 import SectionTitle from "@/components/ui/section-title";
 import project1 from "@/assets/project-1.png";
 import project2 from "@/assets/project-2.png";
-import ProjectsCard from "./projects-card";
-import Button from "./ui/button";
+import ProjectsCard from "@/components/projects-card";
+import Button from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 export default function ProjectsSection() {
