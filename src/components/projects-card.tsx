@@ -1,7 +1,7 @@
 import { MapPin, MoveRight } from "lucide-react";
 import Button from "./ui/button";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 export default function ProjectsCard({
   img,
@@ -13,7 +13,7 @@ export default function ProjectsCard({
   link: string;
   description: string;
   location: string;
-  img: StaticImageData;
+  img: string;
   bgColor: string;
 }) {
   return (

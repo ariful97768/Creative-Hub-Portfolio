@@ -1,11 +1,16 @@
 import SectionTitle from "@/components/ui/section-title";
-import project1 from "@/assets/project-1.png";
-import project2 from "@/assets/project-2.png";
 import ProjectsCard from "@/components/projects-card";
 import Button from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
-export default function ProjectsSection() {
+import getDb from "@/lib/db";
+export default async function ProjectsSection() {
+  const db = await getDb();
+  const projects = await db.projects
+    .find()
+    .limit(2)
+    .sort({ createdAt: -1 })
+    .toArray();
   return (
     <section className="px-5 md:px-8 lg:px-14 pt-20 pb-19">
       <SectionTitle
@@ -23,21 +28,16 @@ export default function ProjectsSection() {
           </Link>
         </div>
         <div className="md:flex gap-6 justify-center">
-          <ProjectsCard
-            link="https://tenstagematrix.com/"
-            description="A decentralized, blockchain-integrated platform empowering community-driven donations, ensuring security, and efficient resource distribution for sustainable impact."
-            location="China"
-            img={project1}
-            bgColor="#FFF3F3"
-          />
-
-          <ProjectsCard
-            link="https://worldmerket.com/"
-            description="Trade Binary Options with Confidence Join thousands of traders on our advanced platform. Start with as little as $1 and earn up to 95% profit on successful trades."
-            location="Canada"
-            img={project2}
-            bgColor="#E8FBFF"
-          />
+          {projects.map((project, index) => (
+            <ProjectsCard
+              key={project._id.toString()}
+              link={project.link}
+              description={project.description}
+              location={project.clientCountry}
+              img={project.image}
+              bgColor={index % 2 === 0 ? "#FFF3F3" : "#E8FBFF"}
+            />
+          ))}
         </div>
       </div>
     </section>

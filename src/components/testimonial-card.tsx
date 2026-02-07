@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 export default function TestimonialCard({
   review,
@@ -8,7 +8,7 @@ export default function TestimonialCard({
   company,
 }: {
   review: string;
-  image: StaticImageData;
+  image: string;
   role: string;
   country: string;
   company: string;

@@ -1,9 +1,13 @@
 import SectionTitle from "@/components/ui/section-title";
-import client1 from "@/assets/client-1.jpg";
-import client2 from "@/assets/client-2.jpg";
-import client3 from "@/assets/client-3.jpg";
 import TestimonialCard from "@/components/testimonial-card";
-export default function Testimonials() {
+import getDb from "@/lib/db";
+export default async function Testimonials() {
+  const db = await getDb();
+  const testimonials = await db.testimonials
+    .find()
+    .limit(3)
+    .sort({ createdAt: -1 })
+    .toArray();
   return (
     <section className="space-y-12.5 max-w-360 mx-auto pb-20 px-5 md:px-8 lg:px-14">
       <div className="max-w-120">
@@ -14,27 +18,16 @@ export default function Testimonials() {
         />
       </div>
       <div className="flex flex-col md:flex-row gap-3 lg:gap-6 max-w-max mx-auto">
-        <TestimonialCard
-          review="CreativeHubIT transformed our ideas into a modern digital platform. Their timely delivery and professional approach exceeded our expectations."
-          image={client1}
-          role="CEO"
-          country="China"
-          company="Li Wei, Shanghai"
-        />
-        <TestimonialCard
-          review="CreativeHubIT transformed our ideas into a modern digital platform. Their timely delivery and professional approach exceeded our expectations."
-          image={client2}
-          role="CEO"
-          country="China"
-          company="Li Wei, Shanghai"
-        />
-        <TestimonialCard
-          review="CreativeHubIT transformed our ideas into a modern digital platform. Their timely delivery and professional approach exceeded our expectations."
-          image={client3}
-          role="CEO"
-          country="China"
-          company="Li Wei, Shanghai"
-        />
+        {testimonials.map((testimonial) => (
+          <TestimonialCard
+            key={testimonial._id.toString()}
+            review={testimonial.review}
+            image={testimonial.image}
+            role={testimonial.position}
+            country={testimonial.country}
+            company={testimonial.company}
+          />
+        ))}
       </div>
     </section>
   );
