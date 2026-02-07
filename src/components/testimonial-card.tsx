@@ -14,11 +14,12 @@ export default function TestimonialCard({
   company: string;
 }) {
   return (
-    <div className="max-w-106.5 border rounded-xl border-gray-200 p-5 shadow-lg bg-white text-[20px] font-semibold">
+    // Added 1px border so that the size of the card visually appears on the ui
+    <div className="max-w-106.5 border rounded-xl border-gray-200 p-5 shadow-lg bg-white text-sm md:text-base lg:text-[20px] font-semibold">
       <p>"{review}"</p>
-      <div className="flex gap-6.5 pt-4.5">
+      <div className="flex gap-3 lg:gap-6.5 pt-4.5">
         <div className="flex flex-col items-center">
-          <div className="relative mb-1.5 w-32.5 h-19.5 shadow-lg">
+          <div className="relative mb-1.5 w-28 h-16 lg:w-32.5 lg:h-19.5 shadow-lg">
             <Image
               fill
               src={image}
