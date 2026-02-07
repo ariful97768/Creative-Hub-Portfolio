@@ -4,9 +4,10 @@ import project2 from "@/assets/project-2.png";
 import ProjectsCard from "./projects-card";
 import Button from "./ui/button";
 import { MoveRight } from "lucide-react";
+import Link from "next/link";
 export default function ProjectsSection() {
   return (
-    <section className="px-14 pt-20 pb-19">
+    <section className="px-5 md:px-8 lg:px-14 pt-20 pb-19">
       <SectionTitle
         align="center"
         subheading="LATEST LIVE PROJECT"
@@ -14,12 +15,14 @@ export default function ProjectsSection() {
       />
       <div className="max-w-max mx-auto mt-6 gap-6 justify-center">
         <div className="flex justify-end mb-7">
-          <Button variant="action">
-            See All{" "}
-            <MoveRight className="group-hover:translate-x-1 transition duration-300" />
-          </Button>
+          <Link href={"/projects"}>
+            <Button variant="action" className="text-base">
+              See All{" "}
+              <MoveRight className="group-hover:translate-x-1 transition duration-300" />
+            </Button>
+          </Link>
         </div>
-        <div className="flex gap-6 justify-center">
+        <div className="md:flex gap-6 justify-center">
           <ProjectsCard
             link="https://tenstagematrix.com/"
             description="A decentralized, blockchain-integrated platform empowering community-driven donations, ensuring security, and efficient resource distribution for sustainable impact."

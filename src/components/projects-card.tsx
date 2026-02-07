@@ -19,7 +19,7 @@ export default function ProjectsCard({
   return (
     <div
       style={{ backgroundColor: bgColor }}
-      className="flex flex-col items-center max-w-162.5 shadow-lg border border-gray-200 gap-10 rounded-xl"
+      className="flex flex-col items-center max-w-162.5 shadow-lg border border-gray-200 gap-7 md:gap-10 rounded-xl"
     >
       <div className="w-full relative h-64 rounded-xl shrink-0 overflow-hidden">
         <Image src={img} fill className="object-cover" alt="Project Image" />
@@ -27,19 +27,22 @@ export default function ProjectsCard({
       <div className="px-3.5 h-full flex flex-col pb-4 space-y-7">
         <div className="space-y-2 grow">
           <div>
-            <Link className="text-2xl font-bold text-accent" href={link}>
+            <Link
+              className="text-lg md:text-xl lg:text-2xl font-bold text-accent"
+              href={link}
+            >
               {link}
             </Link>
           </div>
           <p className="text-base font-semibold">{description}</p>
         </div>
-        <div className="flex items-center justify-between">
-          <Link href={link}>
-            <Button variant="rounded">
+        <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 sm:gap-0 md:gap-3  items-center justify-between">
+          <Link className="w-60 md:w-auto" href={link}>
+            <Button variant="rounded" className="w-full">
               Click Here{" "}
               <MoveRight className="group-hover:translate-x-1 transition duration-300" />
             </Button>
-          </Link>
+          </Link >
           <Button variant="primary">
             <MapPin />
             Client Location From {location}

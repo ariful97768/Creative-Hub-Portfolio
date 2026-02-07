@@ -17,7 +17,7 @@ export default function Button({
     rounded:
       "flex items-center gap-2 px-10 py-3.5 rounded-full font-bold bg-accent text-white",
     action:
-      "flex items-center gap-2 px-9 py-3 rounded-full text-lg font-semibold bg-[#03255A] text-white",
+      "flex items-center gap-2 px-4 py-1 text-sm lg:px-9 lg:py-3 rounded-full text-lg font-semibold bg-[#03255A] text-white",
   };
   return (
     <button
