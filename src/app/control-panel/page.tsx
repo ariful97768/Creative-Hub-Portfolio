@@ -154,7 +154,7 @@ export default function AdminDashboard() {
       <h1 className="text-2xl font-bold text-center mb-10 mt-5">
         Admin Dashboard
       </h1>
-      <div className="flex max-w-xl mx-auto justify-between items-center">
+      <div className="flex flex-col md:flex-row gap-5 max-w-xl mx-auto justify-between items-center">
         <button
           className="flex items-center gap-2 px-4 py-1 lg:px-9 lg:py-3 rounded-full text-lg font-semibold bg-[#03255A] text-white"
           onClick={() => setActiveTab("projects")}
