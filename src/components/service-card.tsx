@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import bgImg from "@/assets/group.png";
 import Button from "./ui/button";
-import { MoveRight } from "lucide-react";
+import { Check, MoveRight } from "lucide-react";
 import Link from "next/link";
 export default function ServiceCard({
   icon,
@@ -30,16 +30,19 @@ export default function ServiceCard({
         >
           <Image src={icon} height={70} width={70} alt="Service icon" />
         </div>
-        <h3 className="text-3xl font-semibold text-dark text-center">
+        <h3 className="text-2xl md:text-3xl font-semibold text-dark text-center">
           {title}
         </h3>
       </div>
-      <span className={`mt-4.5 mb-5 px-10 py-0.5 bg-primary`}></span>
-      <div className="space-y-3 grow px-10">
+      <span className={`mt-4.5 mb-4 px-10 py-0.5 bg-primary`}></span>
+      <div className="space-y-5 grow px-1 sm:px-5 md:px-10">
         <p className="font-medium">{text}</p>
         <ul className="text-start">
           {list.map((item, idx) => (
-            <li key={idx}>{item}</li>
+            <li className="flex items-center gap-1" key={idx}>
+              <Check className="shrink-0" size={20} />
+              <span>{item}</span>
+            </li>
           ))}
         </ul>
       </div>

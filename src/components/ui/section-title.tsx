@@ -13,20 +13,20 @@ export default function SectionTitle({
     >
       {/* Subheading */}
       <h4
-        className={`uppercase text-primary text-2xl font-semibold flex items-center gap-4 ${align === "left" ? "" : " justify-center"}`}
+        className={`uppercase text-primary text-base md:text-xl lg:text-2xl font-semibold flex items-center gap-4 ${align === "left" ? "" : " justify-center"}`}
       >
         {/* Left Side Bar */}
         <span
-          className={`px-5 py-0.5 bg-primary ${align === "left" ? "hidden" : ""}`}
+          className={`px-3 py-px md:px-5 md:py-0.5 bg-primary ${align === "left" ? "hidden" : ""}`}
         ></span>
         {subheading}
         {/* Right Side Bar */}
         <span
-          className={`px-5 py-0.5 bg-primary ${align === "left" ? "" : ""}`}
+          className={`px-3 py-px md:px-5 md:py-0.5 bg-primary ${align === "left" ? "" : ""}`}
         ></span>
       </h4>
       {/* Heading */}
-      <h2 className="text-[40px] leading-14 text-dark font-semibold">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-10 sm:leading-11 md:leading-12 lg:leading-14 text-dark font-semibold">
         {heading}
       </h2>
     </div>
