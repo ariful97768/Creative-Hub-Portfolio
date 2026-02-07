@@ -1,17 +1,21 @@
 "use client";
 
-import { useRef } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import teamMember1 from "@/assets/team-1.jpg";
 import teamMember2 from "@/assets/team-2.png";
 import SectionTitle from "./ui/section-title";
 import { MoveLeft, MoveRight } from "lucide-react";
 import TeamCard from "./team-card";
 
-// Team Section with react-responsive-carousel
+// Team Section with Embla Carousel
 export default function TeamSection() {
-  const carouselRef = useRef<typeof Carousel | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: true,
+    slidesToScroll: 1,
+    containScroll: "trimSnaps",
+  });
 
   const teamMembers = [
     {
@@ -40,17 +44,13 @@ export default function TeamSection() {
     },
   ];
 
-  const handlePrev = () => {
-    if (carouselRef.current) {
-      (carouselRef.current as any).decrement();
-    }
-  };
+  const handlePrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
 
-  const handleNext = () => {
-    if (carouselRef.current) {
-      (carouselRef.current as any).increment();
-    }
-  };
+  const handleNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   return (
     <section className="pb-20">
@@ -77,26 +77,20 @@ export default function TeamSection() {
         </div>
       </div>
 
-      {/* Carousel using react-responsive-carousel */}
-      <Carousel
-        ref={carouselRef as any}
-        centerMode
-        centerSlidePercentage={33.33}
-        showThumbs={false}
-        showStatus={false}
-        showIndicators={false}
-        showArrows={false}
-      >
-        {teamMembers.map((member, index) => (
-          <div key={index} className="px-3 py-5">
-            <TeamCard
-              image={member.image}
-              name={member.name}
-              designation={member.designation}
-            />
-          </div>
-        ))}
-      </Carousel>
+      {/* Carousel using Embla */}
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-5">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="shrink-0 py-5">
+              <TeamCard
+                image={member.image}
+                name={member.name}
+                designation={member.designation}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
