@@ -1,6 +1,6 @@
 # Creative Hub - Digital Agency Portfolio
 
-![Project Banner](https://raw.githubusercontent.com/ariful97768/Creative-Hub-Portfolio/main/public/banner.png)
+![Project Banner](https://raw.githubusercontent.com/ariful97768/Creative-Hub-Portfolio/main/public/creative-hub.png)
 
 ## 🚀 Overview
 
