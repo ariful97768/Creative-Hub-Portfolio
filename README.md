@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Creative Hub - Digital Agency Portfolio
 
-## Getting Started
+![Project Banner](https://raw.githubusercontent.com/ariful97768/Creative-Hub-Portfolio/main/public/banner.png)
 
-First, run the development server:
+## 🚀 Overview
+
+**Creative Hub** is a modern, high-performance portfolio website designed for a digital IT agency. It showcases services, client projects, team members, and testimonials in a clean, professional interface.
+
+This project was developed as a **technical assessment task** for a development agency. The primary objective was to convert a provided **Figma design (Desktop Version)** into a pixel-perfect, functional React application using Next.js.
+
+**Live Demo:** [https://creative-hub-it-portfolio.vercel.app/](https://creative-hub-it-portfolio.vercel.app/)
+
+## ✨ Key Features
+
+-   **Pixel-Perfect Implementation:** Faithful recreation of the provided Figma design for desktop view.
+-   **Modern Tech Stack:** Built with the latest Next.js 14+ (App Router) and TypeScript for type safety.
+-   **Responsive Layout:** Adapted for various screen sizes using Tailwind CSS.
+-   **Dynamic Sections:**
+    -   **Hero Section:** Engaging landing area with call-to-actions.
+    -   **Services:** Grid layout highlighting core offerings (Web Dev, Blockchain, SEO, etc.).
+    -   **Latest Projects:** Showcase of recent work with external links.
+    -   **Testimonials:** Client reviews section.
+    -   **Stats Counter:** numeric display of years of experience.
+-   **Optimized Performance:** Fast load times and optimized assets using Next.js Image component.
+
+## 🛠️ Tech Stack
+
+-   **Framework:** Next.js 
+-   **Language:** TypeScript 
+-   **Styling:** Tailwind CSS 
+-   **Icons:** React Icons / Lucide React
+-   **Deployment:** Vercel
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+├── public/          # Static assets (images, icons)
+├── src/
+│   ├── app/         # Next.js App Router pages
+│   ├── components/  # Reusable UI components (Hero, Navbar, Footer, etc.)
+│   ├── data/        # Mock data for services and projects
+│   └── styles/      # Global styles and Tailwind config
+├── .eslintrc.json   # Linting configuration
+├── next.config.ts   # Next.js configuration
+├── tailwind.config.ts # Tailwind CSS configuration
+└── tsconfig.json    # TypeScript configuration
 ```
+## 📝 Assessment Context
+This project was submitted as a solution to a frontend development challenge.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Constraint:** Focus on Desktop Design implementation from Figma.
+- **Goal:** Demonstrate proficiency in component-based architecture, styling precision, and Next.js best practices.
+--------
+Designed & Developed by **Ariful Islam**
