@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "embla-carousel-react": "^8.6.0",
+    "firebase": "^12.9.0",
     "lucide-react": "^0.563.0",
     "mongodb": "^7.1.0",
     "motion": "^12.31.1",
