@@ -24,7 +24,7 @@ export default function AdminDashboard() {
 
   if (!isLoggedIn) {
     return (
-      <div className="h-[60vh] flex items-center">
+      <section className="h-[60vh] flex items-center">
         <form
           action={handleSignin}
           className="max-w-xs border p-5 rounded-lg mx-auto"
@@ -51,7 +51,7 @@ export default function AdminDashboard() {
             Sign In
           </Button>
         </form>
-      </div>
+      </section>
     );
   }
 
