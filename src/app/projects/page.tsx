@@ -1,6 +1,7 @@
 import ProjectsCard from "@/components/projects-card";
 import SectionTitle from "@/components/ui/section-title";
 import { getAllProjects } from "@/lib/actions/projects-control";
+import ProjectsBannerSection from "./projects-banner";
 
 export default async function Projects() {
   const projects = await getAllProjects();
@@ -11,7 +12,8 @@ export default async function Projects() {
 
   return (
     <main>
-      <section className="pt-10">
+      <ProjectsBannerSection />
+      <section className="pt-20">
         <SectionTitle
           subheading="Our Best Projects"
           heading="We have completed many projects for our clients"
