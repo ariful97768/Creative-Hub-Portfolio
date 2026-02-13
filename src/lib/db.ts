@@ -1,5 +1,5 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
-import { Testimonial, Team, Project } from "./type";
+import { Testimonial, Team, Project, User } from "./type";
 const uri = process.env.MONGODB_URI;
 if (!uri) {
   throw new Error("MONGODB_URI environment variable is not defined.");
@@ -32,6 +32,7 @@ async function getDb() {
     teams: db.collection<Team>("teams"),
     projects: db.collection<Project>("projects"),
     testimonials: db.collection<Testimonial>("testimonials"),
+    users: db.collection<User>("users"),
   };
   return collection;
 }
@@ -42,5 +43,5 @@ export default getDb;
  * Used the global variable to store the client promise to prevent
  * creating a new connection on every request.
  * Although this is not the best practice, it is to prevent a new connection
- * on the website each time a user requests a page.
+ * with the database each time a user makes a db request within the vercel cold start period.
  */

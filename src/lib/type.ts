@@ -23,3 +23,15 @@ export type Project = {
   clientCountry: string;
   createdAt?: string;
 };
+
+export type UserRole = "Team" | "Admin" | "Unauthorized";
+
+export type User = {
+  name: string;
+  email: string;
+  image: string;
+  role: UserRole;
+  firebaseUid: string;
+  createdAt: string;
+  updatedAt: string;
+};
