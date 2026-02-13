@@ -78,7 +78,9 @@ export default function AdminDashboard() {
         const image = e.get("image") as File;
         const description = e.get("description") as string;
         const clientCountry = e.get("clientCountry") as string;
-
+        const title = e.get("title") as string;
+        const technologies = e.get("technologies") as string;
+        const technologiesArray = technologies.split(",");
         // Check if image is provided
         if (!image) return alert("Image is required");
 
@@ -90,6 +92,8 @@ export default function AdminDashboard() {
         result = await SubmitForm({
           formType: "project",
           formData: {
+            technologies: technologiesArray,
+            title,
             link,
             image: imageResult.data.url,
             description,

@@ -17,6 +17,26 @@ export default function ProjectForm() {
           />
         </div>
         <div className="flex gap-2 flex-col">
+          <label htmlFor="title">Project Title</label>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark focus:border-indigo-500"
+            placeholder="PetMart"
+          />
+        </div>
+        <div className="flex gap-2 flex-col">
+          <label htmlFor="technologies">Technologies <span className="text-xs">(Separated by comma)</span></label>
+          <input
+            id="technologies"
+            name="technologies"
+            type="text"
+            className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark focus:border-indigo-500"
+            placeholder="React.js, Node.js, Express.js..."
+          />
+        </div>
+        <div className="flex gap-2 flex-col">
           <label htmlFor="link">Project Link</label>
           <input
             id="link"
