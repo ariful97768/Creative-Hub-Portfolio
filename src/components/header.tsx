@@ -1,12 +1,25 @@
 "use client";
-import { Hamburger, Menu, MoveRight } from "lucide-react";
+import { Menu, MoveRight } from "lucide-react";
 import Image from "next/image";
 import logo from "@/assets/logo-removeBg-preview.png";
 import Link from "next/link";
 import Button from "./ui/button";
 import { useState, useEffect } from "react";
+import { useMotionValueEvent, useScroll, motion } from "motion/react";
 
 export default function Header() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (current > previous && current > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
   const [isFloating, setIsFloating] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -24,7 +37,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <nav
+    <motion.nav
+      animate={{ y: hidden ? "-150%" : "0%" }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       className={
         "sticky top-0 z-50 bg-white text-dark mx-auto transition-all duration-300 ease-in-out" +
         (isFloating ? " rounded-full top-6 shadow-md max-w-7xl" : " max-w-full")
@@ -32,11 +47,11 @@ export default function Header() {
     >
       <div className="max-w-360 mx-auto flex py-3 px-5 md:px-10 items-center justify-between">
         {/* Logo */}
-        <div className="relative lg:w-24 lg:h-17 w-18 h-14">
-          <Link href={"/"}>
+        <Link href={"/"}>
+          <div className="relative lg:w-24 lg:h-17 w-18 h-14">
             <Image src={logo} fill className="object-contain" alt="Logo" />
-          </Link>
-        </div>
+          </div>
+        </Link>
 
         {/* Navigation Menus*/}
         <div>
@@ -57,12 +72,12 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link className="hover:text-primary" href="/#projects">
+              <Link className="hover:text-primary" href="/projects">
                 Client Projects
               </Link>
             </li>
             <li>
-              <Link className="hover:text-primary" href="/#team">
+              <Link className="hover:text-primary" href="/about/#team">
                 Our Team
               </Link>
             </li>
@@ -94,7 +109,7 @@ export default function Header() {
 
           {/* Mobile menu */}
           {isOpen && (
-            <div className="lg:hidden absolute top-20 md:top-20 right-0 w-xs border-t shadow-lg bg-white border rounded-xl mr-5 md:mr-10 border-gray-200 pb-6">
+            <div className="md:hidden absolute top-20 md:top-20 right-0 w-xs border-t shadow-lg bg-white border rounded-xl sm:mr-5 md:mr-10 border-gray-200 pb-6">
               <div className="p-4 gap-2 max-w-xs flex flex-col">
                 <Link
                   href="#/"
@@ -137,6 +152,6 @@ export default function Header() {
           )}
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

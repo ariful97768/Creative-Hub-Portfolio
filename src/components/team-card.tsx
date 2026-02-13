@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 export default function TeamCard({
   image,
@@ -10,7 +10,7 @@ export default function TeamCard({
   about: string;
 }) {
   return (
-    <div className="rounded-xl flex shrink-0 flex-col text-start w-full h-full shadow-lg max-w-50 lg:max-w-106">
+    <div className="rounded-xl border border-gray-200 flex shrink-0 flex-col text-start w-full h-full shadow-lg max-w-50 lg:max-w-106">
       <div className="relative shrink-0 w-50 h-40 lg:w-106 lg:h-75 ">
         <Image
           fill

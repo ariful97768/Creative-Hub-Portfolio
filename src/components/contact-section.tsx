@@ -29,7 +29,7 @@ export default function ContactUsFormSection() {
     <section ref={containerRef} className="w-full mt-20 mx-auto">
       <motion.div
         style={{ scale, borderRadius }}
-        className="rounded w-full max-w-384 bg-bgGradient/70 border shadow-lg border-gray-200 text-dark"
+        className="rounded w-full max-w-384 mx-auto bg-bgGradient/70 border shadow-lg border-gray-200 text-dark"
       >
         <div className="max-w-340 mx-auto flex flex-col-reverse lg:flex-row gap-5 p-0 sm:p-6 lg:px-10 lg:py-20">
           {/* Side Bar - Contact Information */}

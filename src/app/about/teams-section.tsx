@@ -17,7 +17,7 @@ export default async function TeamSection() {
     about: teamMember.about,
   }));
   return (
-    <section className="pb-20">
+    <section id="team" className="pt-12 pb-20">
       {/* Header with title and navigation buttons */}
       <SectionTitle
         align="center"

@@ -33,11 +33,12 @@ const CustomZoomControl = ({
 };
 
 export default function MapSection() {
+  const position: [number, number] = [23.8737, 90.3964];
   return (
     <div>
       <MapContainer
-        className="h-72 md:h-137"
-        center={[24.374981, 91.410133]}
+        className="h-72 md:h-143"
+        center={position}
         zoom={13}
         style={{ width: "100%", zIndex: 10 }}
         scrollWheelZoom={false}
@@ -45,7 +46,7 @@ export default function MapSection() {
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {/* Add Creative Hub IT's Latitude and Longitude here and at the MapContainer*/}
-        <Marker position={[24.374981, 91.410133]}>
+        <Marker position={position}>
           {/* Add custom text to display when clicked on the map icon */}
           <Popup>Creative Hub IT</Popup>
         </Marker>

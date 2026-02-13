@@ -1,25 +1,23 @@
 import Image, { StaticImageData } from "next/image";
 import bgImg from "@/assets/group.png";
-import Button from "./ui/button";
-import { Check, MoveRight } from "lucide-react";
-import Link from "next/link";
+import TikMark from "./ui/tik-mark";
 export default function ServiceCard({
   icon,
   title,
-  text,
+  description,
   list,
   bgColor,
 }: {
   icon: StaticImageData;
   title: string;
-  text: string;
+  description: string;
   list: string[];
   bgColor: string;
 }) {
   return (
     <div
       style={{ backgroundColor: bgColor }}
-      className={`px-3.5 max-w-106 py-6 text-center rounded-3xl flex flex-col items-center justify-center`}
+      className={`px-3.5 max-w-106 py-10 text-center rounded-3xl flex flex-col items-center h-full`}
     >
       <div className="flex flex-col items-center justify-center gap-4 max-w-72 mx-auto">
         <div
@@ -36,21 +34,15 @@ export default function ServiceCard({
       </div>
       <span className={`mt-4.5 mb-4 px-10 py-0.5 bg-primary`}></span>
       <div className="space-y-5 grow px-1 sm:px-5 md:px-10">
-        <p className="font-medium">{text}</p>
+        <p className="font-medium">{description}</p>
         <ul className="text-start">
           {list.map((item, idx) => (
             <li className="flex items-center gap-1" key={idx}>
-              <Check className="shrink-0" size={20} />
-              <span>{item}</span>
+              <TikMark /> <span>{item}</span>
             </li>
           ))}
         </ul>
       </div>
-      <Link className="mt-6" href={"/"}>
-        <Button variant="rounded">
-          Read More <MoveRight />
-        </Button>
-      </Link>
     </div>
   );
 }

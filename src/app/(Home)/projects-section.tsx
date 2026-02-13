@@ -31,6 +31,8 @@ export default async function ProjectsSection() {
           {projects.map((project, index) => (
             <ProjectsCard
               key={project._id.toString()}
+              title={project.title}
+              technologies={project.technologies}
               link={project.link}
               description={project.description}
               location={project.clientCountry}
