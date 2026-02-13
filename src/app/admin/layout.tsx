@@ -5,6 +5,7 @@ import { useAuth } from "@/context/auth.context";
 import LoadingSpinner from "@/components/ui/loading";
 import { UserRole } from "@/lib/type";
 import Unauthorized from "@/components/unauthorized";
+import DashboardSideMenu from "@/components/dashboard-side-menu";
 
 export default function AdminLayout({
   children,
@@ -64,7 +65,12 @@ export default function AdminLayout({
 
   // Grant access only if user role is admin or team
   if (role === "Admin" || role === "Team") {
-    return <main>{children}</main>;
+    return (
+      <main className="flex">
+        <DashboardSideMenu />
+        <div className="flex-1">{children}</div>
+      </main>
+    );
   }
 
   // Show access denied page if user is not an admin

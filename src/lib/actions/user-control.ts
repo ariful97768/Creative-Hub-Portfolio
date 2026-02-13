@@ -1,8 +1,10 @@
 "use server";
 
+import { DeleteResult, ObjectId, UpdateResult } from "mongodb";
 import getDb from "../db";
-import { UserRole } from "../type";
+import { UserWithId, UserRole } from "../type";
 
+// OAuth Signin
 export async function oAuthSignin({
   name,
   email,
@@ -65,6 +67,101 @@ export async function oAuthSignin({
         ? error.message
         : "Unknown error happened during OAuth sign-in";
     // console.error("oAuthSignin error:", error);
+    return { success: false, error: msg };
+  }
+}
+
+// Get all users
+export async function getAllUsers(): Promise<
+  { success: true; data: UserWithId[] } | { success: false; error: string }
+> {
+  try {
+    const { users } = await getDb();
+    const allUsers = await users.find({}).toArray();
+    return { success: true, data: allUsers };
+  } catch (error) {
+    const msg =
+      error instanceof Error
+        ? error.message
+        : "Unknown error happened during getting all users";
+    // console.error("getAllUsers error:", error);
+    return { success: false, error: msg };
+  }
+}
+
+export async function deleteUserById({
+  id,
+  adminEmail,
+}: {
+  id: string;
+  adminEmail: string;
+}): Promise<
+  | {
+      success: true;
+      data: DeleteResult;
+    }
+  | {
+      success: false;
+      error: string;
+    }
+> {
+  try {
+    // Only admin has delete access
+    const { users } = await getDb();
+    const isAdmin = await users.findOne({ email: adminEmail, role: "Admin" });
+
+    if (!isAdmin || isAdmin.role !== "Admin") {
+      return { success: false, error: "Only admin can perform this action" };
+    }
+    if (isAdmin._id.toString() === id) {
+      return { success: false, error: "Admin can't delete themselves" };
+    }
+
+    const usersData = await users.deleteOne({ _id: new ObjectId(id) });
+    return { success: true, data: usersData };
+  } catch (error) {
+    const msg =
+      error instanceof Error ? error.message : "An unknown error occurred";
+    return { success: false, error: msg };
+  }
+}
+
+export async function updateUserRoleById({
+  id,
+  adminEmail,
+  role,
+}: {
+  id: string;
+  adminEmail: string;
+  role: UserRole;
+}): Promise<
+  | {
+      success: true;
+      data: UpdateResult;
+    }
+  | {
+      success: false;
+      error: string;
+    }
+> {
+  try {
+    // Only admin has update access
+    const { users } = await getDb();
+    const isAdmin = await users.findOne({ email: adminEmail, role: "Admin" });
+
+    if (!isAdmin || isAdmin.role !== "Admin") {
+      return { success: false, error: "Only admin can perform this action" };
+    }
+
+    if (isAdmin._id.toString() === id) {
+      return { success: false, error: "Admin can't update themselves" };
+    }
+
+    const usersData = await users.updateOne({ _id: new ObjectId(id) }, { $set: { role, updatedAt: new Date().toISOString() } });
+    return { success: true, data: usersData };
+  } catch (error) {
+    const msg =
+      error instanceof Error ? error.message : "An unknown error occurred";
     return { success: false, error: msg };
   }
 }

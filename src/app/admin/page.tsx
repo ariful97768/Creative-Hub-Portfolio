@@ -2,59 +2,15 @@
 import ProjectForm from "@/components/forms/project";
 import TeamForm from "@/components/forms/team";
 import TestimonialForm from "@/components/forms/testimonial";
-import Button from "@/components/ui/button";
-import signIn from "@/lib/signin";
 import SubmitForm from "@/lib/submit-form";
 import { uploadImage } from "@/lib/upload-image";
 import { useState } from "react";
 
 export default function AdminDashboard() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeTab, setActiveTab] = useState<
-  "projects" | "team" | "testimonial"
+    "projects" | "team" | "testimonial"
   >("projects");
   const [loading, setLoading] = useState(false);
-
-  async function handleSignin(e: FormData) {
-    const username = e.get("username") as string;
-    const password = e.get("password") as string;
-    const result = await signIn({ username, password });
-    setIsLoggedIn(result.success);
-  }
-
-  if (!isLoggedIn) {
-    return (
-      <section className="h-[60vh] flex items-center">
-        <form
-          action={handleSignin}
-          className="max-w-xs border p-5 rounded-lg mx-auto"
-        >
-          <div className="flex gap-2 flex-col">
-            <label htmlFor="username">Username</label>
-            <input
-              id="username"
-              name="username"
-              type="text"
-              className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark"
-            />
-          </div>
-          <div className="flex gap-2 flex-col">
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark"
-            />
-          </div>
-          <Button variant="action" className="mt-5 mx-auto">
-            Sign In
-          </Button>
-        </form>
-      </section>
-    );
-  }
-
 
   /**
    * The submit function for submits the form data to the database.
@@ -149,6 +105,7 @@ export default function AdminDashboard() {
       setLoading(false);
     }
   }
+
   return (
     <div>
       <h1 className="text-2xl font-bold text-center mb-10 mt-5">

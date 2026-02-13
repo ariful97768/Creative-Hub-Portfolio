@@ -1,3 +1,5 @@
+import { WithId } from "mongodb";
+
 export type Testimonial = {
   image: string;
   review: string;
@@ -17,10 +19,12 @@ export type Team = {
 };
 
 export type Project = {
+  title: string;
   image: string;
   link: string;
   description: string;
   clientCountry: string;
+  technologies: string[];
   createdAt?: string;
 };
 
@@ -35,3 +39,8 @@ export type User = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type ProjectWithId = WithId<Project>;
+export type UserWithId = WithId<User>;
+export type TestimonialWithId = WithId<Testimonial>;
+export type TeamWithId = WithId<Team>;
