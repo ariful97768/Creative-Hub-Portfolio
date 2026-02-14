@@ -34,14 +34,19 @@ export default function AboutUsSection() {
         >
           <h1 className="text-xl relative overflow-hidden md:text-xl lg:text-5xl xl:text-[56px]">
             <motion.span
-              className="bg-white z-4 absolute inset-0 w-2 h-full"
+              className="bg-white/80 z-4 absolute inset-0 w-2 h-full"
               initial={{ skewX: -30, x: -10, opacity: 0 }}
-              whileInView={{
+              animate={{
                 skewX: -25,
                 x: 330,
                 opacity: [0, 1, 1, 1, 1, 1, 1, 0],
               }}
-              transition={{ duration: 0.5, delay: 1.6 }}
+              transition={{
+                duration: 0.5,
+                delay: 1.6,
+                repeat: Infinity,
+                repeatDelay: 3,
+              }}
             ></motion.span>
             7 Year&apos;s
           </h1>
@@ -53,7 +58,7 @@ export default function AboutUsSection() {
         </motion.div>
       </motion.div>
       {/* Right side, text part */}
-      <div className="max-w-xl">
+      <div className="max-w-xl overflow-hidden">
         <div>
           <motion.div
             initial={{ x: 30, opacity: 0 }}
