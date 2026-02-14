@@ -18,7 +18,7 @@ export default function AboutUsSection() {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="shrink-0 w-full md:w-80 lg:w-100 xl:w-122.5 sm:h-120 xl:h-122.5 relative"
+          className="shrink-0 w-full md:w-80 lg:w-100 xl:w-122.5 h-50 sm:h-120 xl:h-122.5 relative"
         >
           <Image
             src={templateImg}
