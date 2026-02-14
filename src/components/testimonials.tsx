@@ -20,7 +20,6 @@ export default async function Testimonials() {
       </div>
       <Marquee
         speed={25}
-        gradient
         pauseOnHover
         direction="left"
         className="flex gap-3 lg:gap-6"

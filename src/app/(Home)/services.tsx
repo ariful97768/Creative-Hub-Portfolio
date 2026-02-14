@@ -128,11 +128,11 @@ export default function Services() {
         />
 
         {/* Service Cards */}
-        <div className="max-w-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-15">
+        <div className="max-w-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 md:gap-y-10 lg:gap-y-15">
           {serviceData.map((service, idx) => (
             <motion.div
               key={idx}
-              initial={{ y: 80, opacity: 0, scale: 0.95 }}
+              initial={{ y: 60, opacity: 0, scale: 0.95 }}
               whileInView={{ y: 0, opacity: 1, scale: 1 }}
               viewport={{ once: true,  }}
               transition={{

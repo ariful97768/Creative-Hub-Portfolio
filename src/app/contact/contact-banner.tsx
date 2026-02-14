@@ -2,7 +2,7 @@ import contactImg from "@/assets/contact.jpg";
 
 export default function ContactBanner() {
   return (
-    <section>
+    <section className="mb-20">
       <div
         style={{
           backgroundImage: `url(${contactImg.src})`,

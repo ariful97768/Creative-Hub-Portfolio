@@ -22,7 +22,7 @@ export default function ProjectsBannerSection() {
             transition={{ duration: 0.5 }}
             className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-white z-1"
           >
-            About Us
+            Client Projects
           </motion.h1>
           <motion.p
             initial={{ y: 30, opacity: 0 }}
