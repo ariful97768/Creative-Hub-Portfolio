@@ -27,6 +27,8 @@ export default async function Testimonials() {
         <div className="flex gap-3 py-5 lg:gap-6 max-w-max mx-auto">
           {testimonials.map((testimonial) => (
             <TestimonialCard
+              name={testimonial.name}
+              rating={testimonial.rating}
               key={testimonial._id.toString()}
               review={testimonial.review}
               image={testimonial.image}

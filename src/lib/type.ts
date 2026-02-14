@@ -1,11 +1,13 @@
 import { WithId } from "mongodb";
 
 export type Testimonial = {
+  name: string;
   image: string;
   review: string;
   country: string;
   company: string;
   position: string;
+  rating: number;
   createdAt?: string;
 };
 
