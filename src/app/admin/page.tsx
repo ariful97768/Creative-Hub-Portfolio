@@ -53,6 +53,8 @@ export default function AdminDashboard() {
         const country = e.get("country") as string;
         const company = e.get("company") as string;
         const position = e.get("position") as string;
+        const name = e.get("name") as string;
+        const rating = Number(e.get("rating"));
 
         // Check if image is provided
         if (!image) return alert("Image is required");
@@ -65,6 +67,8 @@ export default function AdminDashboard() {
         result = await SubmitForm({
           formType: "testimonial",
           formData: {
+            name,
+            rating,
             review,
             image: imageResult.data.url,
             country,

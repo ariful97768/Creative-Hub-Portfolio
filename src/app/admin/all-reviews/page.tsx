@@ -29,6 +29,7 @@ export default async function AllReviewsPage() {
               <DeleteReview id={review._id.toString()} />
             </div>
             <TestimonialCard
+              name={review.name}
               review={review.review}
               image={review.image}
               role={review.position}
