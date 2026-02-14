@@ -32,3 +32,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-nunito), sans-serif;
 }
+
+/* Override react-fast-marquee's defaults that cause blank gaps */
+.rfm-marquee-container {
+  gap: 0 !important;
+}
+
+.rfm-marquee-container .rfm-marquee {
+  min-width: auto !important;
+}

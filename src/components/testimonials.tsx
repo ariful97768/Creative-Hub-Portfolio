@@ -18,13 +18,8 @@ export default async function Testimonials() {
           subheading="Testimonial"
         />
       </div>
-      <Marquee
-        speed={25}
-        pauseOnHover
-        direction="left"
-        className="flex gap-3 lg:gap-6"
-      >
-        <div className="flex gap-3 py-5 lg:gap-6 max-w-max mx-auto">
+      <Marquee speed={25} pauseOnHover direction="left">
+        <div className="flex gap-4 lg:gap-8 py-5 pr-4 lg:pr-8">
           {testimonials.map((testimonial) => (
             <TestimonialCard
               name={testimonial.name}
