@@ -32,7 +32,3 @@ body {
   color: var(--foreground);
   font-family: var(--font-nunito), sans-serif;
 }
-
-html {
-  scroll-behavior: smooth;
-}

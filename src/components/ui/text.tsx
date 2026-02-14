@@ -1,5 +1,5 @@
 "use client";
-import { motion, Variants } from "framer-motion"; // Import Variants type
+import { motion, Variants } from "framer-motion";
 
 export default function WaveText({ text }: { text: string }) {
   const words = text.split(" ");
@@ -50,7 +50,7 @@ export default function WaveText({ text }: { text: string }) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="pt-1.5 pb-2.5 sm:pt-4 sm:pb-3 text-2xl md:text-4xl lg:text-5xl leading-8 sm:leading-10 md:leading-13 lg:leading-16 font-bold text-dark"
+      className="pt-1.5 pb-2.5 sm:pt-4 sm:pb-3 flex md:block items-center justify-center sm:justify-start text-2xl md:text-4xl lg:text-5xl leading-8 sm:leading-10 md:leading-13 lg:leading-16 font-bold text-dark"
     >
       {words.map((word, wordIndex) => (
         <span
