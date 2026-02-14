@@ -18,7 +18,7 @@ export default async function ProjectsSection() {
         subheading="LATEST LIVE PROJECT"
         heading="Latest completed tech Portfolio showcase"
       />
-      <div className="max-w-max mx-auto mt-6 gap-6 justify-center">
+      <div className="w-full mx-auto mt-6 gap-6 justify-center">
         <div className="flex justify-end mb-7">
           <Link href={"/projects"}>
             <Button variant="action" className="text-base">
@@ -27,7 +27,7 @@ export default async function ProjectsSection() {
             </Button>
           </Link>
         </div>
-        <div className="md:flex gap-6 justify-center">
+        <div className="flex flex-col md:flex-row sm:max-w-max md:max-w-full mx-auto align-normal gap-6 justify-center">
           {projects.map((project, index) => (
             <ProjectsCard
               key={project._id.toString()}

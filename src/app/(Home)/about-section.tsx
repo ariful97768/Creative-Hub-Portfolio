@@ -8,55 +8,57 @@ export default function AboutUsSection() {
   return (
     <section
       className={
-        "flex md:flex-row flex-col-reverse sm:items-center items-start justify-between gap-10 lg:gap-30 max-w-360 mx-auto px-5 md:px-8 lg:px-14"
+        "flex flex-col md:flex-row sm:items-center items-start justify-between gap-10 lg:gap-30 max-w-360 mx-auto px-5 md:px-8 lg:px-14"
       }
     >
       {/* Image part */}
-      <motion.div
-        initial={{ x: -30, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="shrink-0 w-60 h-60 sm:w-120 md:w-80 xl:w-122.5 sm:h-120 xl:h-122.5 relative"
-      >
-        <Image
-          src={templateImg}
-          alt="Template image"
-          fill
-          className="rounded-md shrink-0 xl:rounded-none object-cover"
-        />
+      <div className="w-full pr-10">
         <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          initial={{ x: -30, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="absolute top-1/4 -right-10 lg:top-1/3 lg:-right-1/3 flex flex-col items-center justify-center font-bold text-dark px-5 py-1.5 lg:px-13 lg:py-4 bg-[#E7F914] rounded-full"
+          className="shrink-0 w-full md:w-80 lg:w-100 xl:w-122.5 sm:h-120 xl:h-122.5 relative"
         >
-          <h1 className="text-xl relative overflow-hidden md:text-xl lg:text-5xl xl:text-[56px]">
-            <motion.span
-              className="bg-white/80 z-4 absolute inset-0 w-2 h-full"
-              initial={{ skewX: -30, x: -10, opacity: 0 }}
-              animate={{
-                skewX: -25,
-                x: 330,
-                opacity: [0, 1, 1, 1, 1, 1, 1, 0],
-              }}
-              transition={{
-                duration: 0.5,
-                delay: 1.6,
-                repeat: Infinity,
-                repeatDelay: 3,
-              }}
-            ></motion.span>
-            7 Year&apos;s
-          </h1>
-          <p className="text-sm lg:text-base text-center">
-            years of experiences
-            <br />
-            in this industry
-          </p>
+          <Image
+            src={templateImg}
+            alt="Template image"
+            fill
+            className="rounded-md shrink-0 xl:rounded-none object-cover"
+          />
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="absolute top-1/4 -right-10 lg:top-1/3 lg:-right-1/3 flex flex-col items-center justify-center font-bold text-dark px-5 py-1.5 lg:px-13 lg:py-4 bg-[#E7F914] rounded-full"
+          >
+            <h1 className="text-xl relative overflow-hidden md:text-xl lg:text-5xl xl:text-[56px]">
+              <motion.span
+                className="bg-white/80 z-4 absolute inset-0 w-2 h-full"
+                initial={{ skewX: -30, x: -10, opacity: 0 }}
+                animate={{
+                  skewX: -25,
+                  x: 330,
+                  opacity: [0, 1, 1, 1, 1, 1, 1, 0],
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: 1.6,
+                  repeat: Infinity,
+                  repeatDelay: 3,
+                }}
+              ></motion.span>
+              7 Year&apos;s
+            </h1>
+            <p className="text-sm lg:text-base text-center">
+              years of experiences
+              <br />
+              in this industry
+            </p>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
       {/* Right side, text part */}
       <div className="max-w-xl overflow-hidden">
         <div>
