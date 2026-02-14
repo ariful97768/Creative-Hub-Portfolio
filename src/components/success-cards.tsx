@@ -1,13 +1,14 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
-
+import CountUp from "react-countup";
 export default function SuccessCard({
   badge,
   title,
-  subtitle,
+  number,
 }: {
   badge: StaticImageData;
   title: string;
-  subtitle: string;
+  number: number;
 }) {
   return (
     <div className="max-w-max mx-auto space-y-6">
@@ -23,8 +24,8 @@ export default function SuccessCard({
       </div>
       <div>
         <h2 className="text-center text-xl md:text-2xl xl:leading-14 xl:text-[32px] font-semibold">
-         <span className="whitespace-nowrap">{title}</span> <br />
-          {subtitle}
+          <span className="whitespace-nowrap">{title}</span> <br />
+          <CountUp duration={5} end={number} enableScrollSpy scrollSpyOnce />+
         </h2>
       </div>
     </div>
