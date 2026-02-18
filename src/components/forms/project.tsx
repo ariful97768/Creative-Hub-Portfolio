@@ -1,71 +1,112 @@
+import { SubmitEvent } from "react";
+import Input from "../ui/input";
+import {
+  Upload,
+  Globe,
+  Code,
+  FileText,
+  MapPin,
+  Link as LinkIcon,
+} from "lucide-react";
+import Textarea from "../ui/textarea";
+import { Project } from "@/lib/type";
 
-export default function ProjectForm() {
+export default function ProjectForm({
+  handleSubmit,
+  action,
+  loading,
+  setIsOpen,
+  defaultValue,
+}: {
+  handleSubmit: (e: SubmitEvent<HTMLFormElement>) => void;
+  action: "add" | "update";
+  loading: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+  defaultValue?: Project;
+}) {
   return (
-    <>
-      <h1 className="text-2xl font-bold text-center mb-10 mt-5">
-        Add New Project
-      </h1>
-      <div className="w-max mx-auto space-y-3">
-        <div className="flex gap-2 flex-col">
-          <label htmlFor="image">Image</label>
-          <input
-            id="image"
-            name="image"
-            type="file"
-            className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark"
-            placeholder="John Doe"
-          />
-        </div>
-        <div className="flex gap-2 flex-col">
-          <label htmlFor="title">Project Title</label>
-          <input
-            id="title"
-            name="title"
-            type="text"
-            className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark focus:border-indigo-500"
-            placeholder="PetMart"
-          />
-        </div>
-        <div className="flex gap-2 flex-col">
-          <label htmlFor="technologies">Technologies <span className="text-xs">(Separated by comma)</span></label>
-          <input
-            id="technologies"
-            name="technologies"
-            type="text"
-            className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark focus:border-indigo-500"
-            placeholder="React.js, Node.js, Express.js..."
-          />
-        </div>
-        <div className="flex gap-2 flex-col">
-          <label htmlFor="link">Project Link</label>
-          <input
-            id="link"
-            name="link"
-            type="url"
-            className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark focus:border-indigo-500"
-            placeholder="https://example.com"
-          />
-        </div>
-        <div className="flex gap-2 flex-col">
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark focus:border-indigo-500"
-            placeholder="Project Description"
-          />
-        </div>
-        <div className="flex gap-2 flex-col">
-          <label htmlFor="clientCountry">Client Country</label>
-          <input
-            id="clientCountry"
-            name="clientCountry"
-            type="text"
-            className="border max-w-xs px-3 py-2 transition-colors duration-300 rounded-md outline-none bg-white text-dark focus:border-indigo-500"
-            placeholder="China"
-          />
-        </div>
+    <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Image Upload */}
+      <Input
+        required={action === "add"}
+        type="file"
+        label="Project Image"
+        name="image"
+        placeholder="Project Image"
+        icon={Upload}
+      />
+      {/* Country */}
+      <Input
+        required={true}
+        defaultValue={defaultValue?.clientCountry}
+        type="text"
+        label="Country"
+        name="country"
+        placeholder="USA"
+        icon={MapPin}
+      />
+      {/* Project Title */}
+      <Input
+        required={true}
+        defaultValue={defaultValue?.title}
+        type="text"
+        label="Project Title"
+        name="title"
+        placeholder="PetMart E-Commerce"
+        icon={FileText}
+      />
+      {/* Technologies */}
+      <Input
+        required={true}
+        defaultValue={defaultValue?.technologies.join(",")}
+        type="text"
+        label="Technologies (separated by comma)"
+        name="technologies"
+        placeholder="React.js, Node.js, Express.js, MongoDB..."
+        icon={Code}
+      />
+      {/* Project Link */}
+      <Input
+        required={true}
+        defaultValue={defaultValue?.link}
+        type="url"
+        label="Project Link"
+        name="link"
+        placeholder="https://example.com"
+        icon={LinkIcon}
+      />
+      {/* Description */}
+      <Textarea
+        required={true}
+        defaultValue={defaultValue?.description}
+        label="Description"
+        name="description"
+        placeholder="Write a brief description of the project..."
+        icon={Globe}
+      />
+
+      {/* Action Buttons */}
+      <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
+        <button
+          type="button"
+          onClick={() => setIsOpen(false)}
+          className="px-5 py-2.5 rounded-lg text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 cursor-pointer transition-all duration-200 active:scale-[0.97]"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-primary hover:bg-accent cursor-pointer shadow-md hover:shadow-lg transition-all duration-300 active:scale-[0.97]"
+        >
+          {action === "add"
+            ? loading // Checks if action is add and loading is true
+              ? "Adding..."
+              : "Add Project"
+            : loading // Checks if action is update and loading is true
+              ? "Updating..."
+              : "Update Project"}
+        </button>
       </div>
-    </>
+    </form>
   );
 }
