@@ -11,12 +11,19 @@ export type Testimonial = {
   createdAt?: string;
 };
 
+export type Email = {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone: string;
+  message: string;
+  createdAt?: string;
+};
+
 export type Team = {
   image: string;
   name: string;
   about: string;
-  joiningDate: string;
-  salary: number;
   createdAt?: string;
 };
 

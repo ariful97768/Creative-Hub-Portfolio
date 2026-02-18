@@ -1,5 +1,16 @@
 const TWO_MB = 2 * 1024 * 1024;
-export async function uploadImage(image: File) {
+export async function uploadImage(image: File): Promise<
+  | {
+      success: true;
+      message: string;
+      data: { url: string; time: string };
+    }
+  | {
+      success: false;
+      message: string;
+      error: any;
+    }
+> {
   try {
     if (image.size > TWO_MB)
       throw new Error(`Image size must be less then 2MB`);
@@ -22,7 +33,11 @@ export async function uploadImage(image: File) {
     });
 
     if (!result.ok)
-      return { success: false, message: "Failed to upload image" };
+      return {
+        success: false,
+        message: "Failed to upload image",
+        error: result,
+      };
 
     const data = await result.json();
 
@@ -34,6 +49,6 @@ export async function uploadImage(image: File) {
   } catch (error) {
     const msg =
       error instanceof Error ? error.message : "Failed to upload image";
-    return { success: false, message: msg };
+    return { success: false, message: msg, error };
   }
 }

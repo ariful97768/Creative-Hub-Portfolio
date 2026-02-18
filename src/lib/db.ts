@@ -1,5 +1,5 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
-import { Testimonial, Team, Project, User } from "./type";
+import { Testimonial, Team, Project, User, Email } from "./type";
 const uri = process.env.MONGODB_URI;
 if (!uri) {
   throw new Error("MONGODB_URI environment variable is not defined.");
@@ -33,6 +33,7 @@ async function getDb() {
     projects: db.collection<Project>("projects"),
     testimonials: db.collection<Testimonial>("testimonials"),
     users: db.collection<User>("users"),
+    emails: db.collection<Email>("emails"),
   };
   return collection;
 }
