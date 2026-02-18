@@ -9,10 +9,58 @@ import {
   MapPin,
   PhoneCall,
 } from "lucide-react";
+import { contactEmail } from "@/lib/actions/contact-email";
+import Swal from "sweetalert2";
+import { SubmitEvent } from "react";
 
 export default function ContactUsFormSection() {
+  // Handle contact form submission
+
+  async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+    // Extract form data
+    try {
+      const formData = new FormData(e.currentTarget);
+      const data = {
+        first_name: formData.get("first_name") as string,
+        last_name: formData.get("last_name") as string,
+        email: formData.get("email") as string,
+        phone: formData.get("phone") as string,
+        message: formData.get("message") as string,
+      };
+
+      const res = await contactEmail(data);
+      if (res.accepted.length > 0) {
+        Swal.fire({
+          title: "Success!",
+          text: "Email sent successfully",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      } else {
+        Swal.fire({
+          title: "Error!",
+          text: "Email not sent. Please try again later.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+
+      // Reset form
+      e.target.reset();
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "Something went wrong. Email not sent.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      console.log(error);
+    }
+  }
+
   return (
-    <section className="max-w-360 mb-20 mx-auto px-5 md:px-8 lg:px-14">
+    <section className="max-w-360 mb-16 md:mb-20 mx-auto px-5 md:px-8 lg:px-14">
       <div className="flex flex-col-reverse justify-center shadow-xl max-w-280 mx-auto lg:flex-row gap-8 md:gap-14 rounded-xl p-0 sm:p-6 bg-light-blue border border-gray-200 text-dark">
         {/* Contact Information - Card area */}
         <div className="relative lg:max-w-max w-full overflow-hidden flex flex-col py-8 p-5 sm:pl-5 sm:pr-14 lg:pr-33 bg-accent/5 text-dark rounded-xl">
@@ -56,14 +104,15 @@ export default function ContactUsFormSection() {
         </div>
 
         {/* Form area */}
-        <form className="px-6 sm:px-0 w-full max-w-150">
-          <div className="flex flex-col gap-10 pt-10 max-w-150 w-full">
-            <div className="flex flex-col sm:flex-row gap-10">
+        <form onSubmit={handleSubmit} className="px-6 sm:px-0 w-full">
+          <div className="flex flex-col gap-5 md:gap-10 pt-10 w-full">
+            <div className="flex flex-col sm:flex-row gap-5 md:gap-10">
               <div className="flex w-full flex-col gap-2">
                 <label className="text-sm" htmlFor="first_name">
                   First Name
                 </label>
                 <input
+                  required
                   id="first_name"
                   name="first_name"
                   placeholder="John"
@@ -74,6 +123,7 @@ export default function ContactUsFormSection() {
               <div className="flex w-full flex-col gap-2">
                 <label htmlFor="last_name">Last Name</label>
                 <input
+                  required
                   id="last_name"
                   name="last_name"
                   placeholder="Doe"
@@ -82,10 +132,11 @@ export default function ContactUsFormSection() {
                 />
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-10">
+            <div className="flex flex-col sm:flex-row gap-5 md:gap-10">
               <div className="flex w-full flex-col gap-2">
                 <label htmlFor="email">Email</label>
                 <input
+                  required
                   id="email"
                   name="email"
                   placeholder="email@example.com"
@@ -96,6 +147,7 @@ export default function ContactUsFormSection() {
               <div className="flex w-full flex-col gap-2">
                 <label htmlFor="phone">Phone Number</label>
                 <input
+                  required
                   id="phone"
                   name="phone"
                   placeholder="+1 234 567 890"
@@ -107,13 +159,14 @@ export default function ContactUsFormSection() {
             <div className="flex flex-col w-full gap-2">
               <label htmlFor="message">Message</label>
               <textarea
+                required
                 id="message"
                 name="message"
                 placeholder="Write your message.."
                 className="outline-none border-b"
               ></textarea>
             </div>
-            <div className="flex justify-center sm:justify-end mb-5 lg:mb-0 lg:mt-15">
+            <div className="flex justify-center sm:justify-end mb-5 lg:mb-0 mt-5 lg:mt-10">
               <button className="bg-accent text-white px-12 py-4 font-medium rounded-md hover:cursor-pointer active:scale-95 transition-all duration-300">
                 Send Message
               </button>
