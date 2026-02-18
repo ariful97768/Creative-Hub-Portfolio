@@ -18,7 +18,7 @@ export default async function AllTeamsPage() {
       <div className="flex justify-end my-10 px-10">
         <AddTeamModal />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-max mx-auto gap-10 px-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-10">
         {result.data.map((team) => (
           <TeamItem
             key={team._id.toString()}

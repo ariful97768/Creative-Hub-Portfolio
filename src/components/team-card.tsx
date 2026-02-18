@@ -11,13 +11,13 @@ export default function TeamCard({
 }) {
   return (
     <div className="rounded-xl border border-gray-200 flex shrink-0 flex-col text-start w-full h-full shadow-lg">
-      <div className="relative shrink-0">
+      <div className="relative shrink-0 aspect-4/3 w-full">
         <Image
           src={image}
           alt={name}
-          width={500}
-          height={350}
-          className="w-full h-auto rounded-t-xl object-cover"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+          className="rounded-t-xl object-cover"
         />
       </div>
       <div className="grow w-full pt-4 px-4.5 pb-5">
