@@ -1,5 +1,4 @@
 import { ExternalLink, MapPin } from "lucide-react";
-import Button from "./ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import * as motion from "motion/react-client";
@@ -74,7 +73,7 @@ export default function ProjectsCard({
             </button>
           </Link>
           <button className="flex font-semibold items-center gap-2 px-3 border py-1 max-w-max rounded-md bg-accent text-white">
-            <MapPin className="w-4 h-4 shrink-0 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition duration-300" />
+            <MapPin className="w-4 h-4 shrink-0" />
             {location}
           </button>
         </div>

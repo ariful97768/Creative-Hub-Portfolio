@@ -52,7 +52,7 @@ export default function Header() {
   const navMenus = {
     Home: "/",
     About: "/about",
-    Services: "/#services",
+    Services: "/services",
     "Client Projects": "/projects",
     "Our Team": "/about/#team",
     "Contact Us": "/contact",

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { MapPin, Quote, Star } from "lucide-react";
 
 export default function TestimonialCard({
@@ -19,44 +18,40 @@ export default function TestimonialCard({
   rating?: number;
 }) {
   return (
-    <div className="max-w-sm w-full border rounded-2xl border-gray-100 p-6 shadow-md bg-white flex flex-col justify-between gap-5">
+    <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
       {/* Quote Icon */}
-      <div>
-        <Quote className="rotate-180 w-10 h-10 text-accent/40 fill-accent/15 mb-4" />
-        <p className="text-dark text-sm md:text-base leading-relaxed font-medium">
-          &ldquo;{review}&rdquo;
-        </p>
+      <div className="text-5xl text-primary opacity-20 mb-4">
+        <Quote className="rotate-180 w-10 md:w-14 h-10 md:h-14 text-accent/60 fill-accent/25 mb-4" />
       </div>
+      {/* Testimonial Text */}
+      <p className="text-gray-700 text-lg italic mb-6 md:mb-8 leading-relaxed line-clamp-4 grow">
+        "{review}"
+      </p>
 
-      {/* Bottom Section: Profile + Rating + Country */}
-      <div className="flex items-center justify-between gap-3 pt-2 border-t border-gray-100">
-        <div className="flex items-center gap-3">
-          {/* Profile Image */}
-          <div className="relative w-12 h-12 shrink-0">
-            <Image
-              fill
-              src={image}
-              className="object-cover rounded-full"
-              alt={company}
-            />
+      {/* Client Info */}
+      <div className="flex items-center gap-4">
+        {/* Client Image */}
+        <div className="shrink-0">
+          <div className="w-16 h-16 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg">
+            {/* "testimonial.image"  */}
+            {image ? (
+              <img
+                src={image}
+                alt={name}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full bg-primary flex items-center justify-center text-white text-xl font-bold">
+                {name.charAt(0)}
+              </div>
+            )}
           </div>
-          {/* Name & Role */}
-          <div>
-            <h4 className="text-sm md:text-base font-bold text-dark">
-               {  name } 
-            </h4>
-            <p className="text-xs md:text-sm text-gray-500">{role}</p>
-          </div>
-        </div>
-
-        {/* Rating & Country */}
-        <div className="flex flex-col items-end gap-1">
           {/* Star Rating */}
-          <div className="flex gap-0.5">
+          <div className="flex mt-3 gap-1">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star
                 key={i}
-                className={`w-4 h-4 ${
+                className={`w-3 h-3 ${
                   i < rating
                     ? "text-amber-400 fill-amber-400"
                     : "text-gray-300 fill-gray-300"
@@ -64,11 +59,24 @@ export default function TestimonialCard({
               />
             ))}
           </div>
-          {/* Country */}
-          <div className="flex items-center gap-1 text-xs text-gray-500">
-            <MapPin className="w-3 h-3 text-accent" />
-            <span>{country}</span>
+        </div>
+
+        {/* Client Details */}
+        <div className="flex-1">
+          <div className="flex items-center justify-between mb-2">
+            <div>
+              <h4 className="font-bold text-gray-900 text-lg">{name}</h4>
+              <p className="text-gray-600 text-sm">
+                {role}, {company}
+              </p>
+            </div>
           </div>
+          {true && (
+            <div className="flex items-center gap-2 text-gray-500">
+              <MapPin className="w-4 h-4" />
+              <span className="text-sm">{country}</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

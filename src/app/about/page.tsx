@@ -9,13 +9,16 @@ export default function AboutUsPage() {
     <main>
       {/* Banner section */}
       <AboutBanner />
+      <div className="max-w-360 mx-auto">
+        <AboutUsSection />
+      </div>
       <div className="max-w-360 px-5 md:px-8 lg:px-14 mx-auto">
         {/* About us section. Make sure you import it from: "./about-section" */}
-        <AboutUsSection />
         <TeamSection />
         <SuccessSection />
-        <Testimonials />
       </div>
+      {/* removed from the div because it already contains the section classes */}
+      <Testimonials />
     </main>
   );
 }
