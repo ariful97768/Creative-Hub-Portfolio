@@ -1,3 +1,5 @@
+export const revalidate = 86400; // 24 hours
+
 import Hero from "@/app/(Home)/hero";
 import Services from "@/app/(Home)/services";
 import AboutUsSection from "@/app/(Home)/about-section";

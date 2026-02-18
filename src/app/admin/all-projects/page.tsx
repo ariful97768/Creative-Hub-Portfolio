@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllProjects } from "@/lib/actions/projects-control";
 import AddProjectModal from "./add-project-modal";
 import ProjectItem from "./project-item";

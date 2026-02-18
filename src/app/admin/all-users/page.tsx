@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllUsers } from "@/lib/actions/user-control";
 import Image from "next/image";
 import DeleteUser from "./delete-user";

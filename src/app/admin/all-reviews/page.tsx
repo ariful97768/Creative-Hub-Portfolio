@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllReviews } from "@/lib/actions/review-control";
 import AddReviewModal from "./add-review-modal";
 import ReviewItem from "./review-item";

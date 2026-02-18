@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllMessages } from "@/lib/actions/contact-email";
 import { Mail, Phone, Clock, MessageSquare, Inbox } from "lucide-react";
 import DeleteMessage from "./delete-message";

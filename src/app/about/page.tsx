@@ -1,3 +1,5 @@
+export const revalidate = 86400; // 24 hours
+
 import Testimonials from "@/components/testimonials";
 import AboutUsSection from "./about-section";
 import SuccessSection from "./success";

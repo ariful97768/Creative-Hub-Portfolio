@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllTeams } from "@/lib/actions/teams-control";
 import AddTeamModal from "./add-team-modal";
 import TeamItem from "./team-item";
