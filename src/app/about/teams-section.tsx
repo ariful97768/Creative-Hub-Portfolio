@@ -17,7 +17,7 @@ export default async function TeamSection() {
     about: teamMember.about,
   }));
   return (
-    <section id="team" className="pt-12 pb-20">
+    <section id="team" className="pt-12 pb-16 md:pb-20">
       {/* Header with title and navigation buttons */}
       <SectionTitle
         align="center"
@@ -25,7 +25,7 @@ export default async function TeamSection() {
         heading="Meet Our Experience Professional IT Employee"
       />
 
-      {/* Carousel using Embla */}
+      {/* Carousel using Swiper.js */}
       <CarouselComponent teamMembers={team} />
     </section>
   );

@@ -1,7 +1,9 @@
 import ProjectsCard from "@/components/projects-card";
 import SectionTitle from "@/components/ui/section-title";
 import { getAllProjects } from "@/lib/actions/projects-control";
-import ProjectsBannerSection from "./projects-banner";
+// import ProjectsBannerSection from "./projects-banner";
+import projectsBanner from "@/assets/projects-banner.jpg";
+import Banner from "@/components/banner";
 
 export default async function Projects() {
   const projects = await getAllProjects();
@@ -12,7 +14,12 @@ export default async function Projects() {
 
   return (
     <main>
-      <ProjectsBannerSection />
+      <Banner
+        title="Client Projects"
+        link="Home"
+        subLink="Projects"
+        image={projectsBanner.src}
+      />
       <section className="max-w-360 mx-auto px-5 md:px-8 lg:px-14 py-20">
         <SectionTitle
           subheading="Our Best Projects"

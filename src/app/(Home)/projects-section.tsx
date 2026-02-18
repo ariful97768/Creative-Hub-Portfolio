@@ -12,7 +12,7 @@ export default async function ProjectsSection() {
     .sort({ createdAt: -1 })
     .toArray();
   return (
-    <section className="px-5 md:px-8 lg:px-14 pt-20 pb-19">
+    <section className="px-5 md:px-8 lg:px-14 pb-16 md:pb-19 pt-12 md:pt-16 lg:pt-20">
       <SectionTitle
         align="center"
         subheading="LATEST LIVE PROJECT"

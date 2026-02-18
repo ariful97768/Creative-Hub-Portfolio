@@ -109,7 +109,10 @@ export default function Services() {
     },
   ];
   return (
-    <section id="services" className="pb-20 px-5 md:px-8 lg:px-14 pt-17">
+    <section
+      id="services"
+      className="pb-16 md:pb-20 px-5 md:px-8 lg:px-14 pt-12 md:pt-16 lg:pt-17"
+    >
       <SectionTitle
         align="center"
         heading="Explore Our Best Premium Quality Service"
@@ -118,7 +121,7 @@ export default function Services() {
       <div
         ref={containerRef}
         onMouseMove={handleMouseMove}
-        className="mt-14 relative"
+        className="mt-10 md:mt-12 lg:mt-14 relative"
       >
         {/* Custom Cursor */}
         <CustomCursor
@@ -134,7 +137,7 @@ export default function Services() {
               key={idx}
               initial={{ y: 60, opacity: 0, scale: 0.95 }}
               whileInView={{ y: 0, opacity: 1, scale: 1 }}
-              viewport={{ once: true,  }}
+              viewport={{ once: true }}
               transition={{
                 type: "spring",
                 stiffness: 100,

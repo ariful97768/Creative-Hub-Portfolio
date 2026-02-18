@@ -63,7 +63,7 @@ export default function UpdateRole({
   };
 
   return (
-    <td>
+    <>
       <button
         className="flex items-center gap-2 cursor-pointer font-medium"
         onClick={() => setOpen(true)}
@@ -121,6 +121,6 @@ export default function UpdateRole({
           </div>
         </div>
       )}
-    </td>
+    </>
   );
 }
