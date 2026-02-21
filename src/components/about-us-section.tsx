@@ -1,8 +1,11 @@
 import SectionTitle from "@/components/ui/section-title";
 import templateImg from "@/assets/template-img-2.jpg";
 import { CheckCircle, Globe, Headset, Lightbulb } from "lucide-react";
+import * as motion from "motion/react-client";
 
 export const AboutUs = ({ align }: { align: "reverse" | "horizontal" }) => {
+  const isHorizontal = align === "horizontal";
+
   const features = [
     {
       id: 1,
@@ -34,10 +37,16 @@ export const AboutUs = ({ align }: { align: "reverse" | "horizontal" }) => {
     <section className="pt-10 md:py-12 overflow-hidden">
       <div className="max-w-360 mx-auto px-5 md:px-8 lg:px-14">
         <div
-          className={`flex flex-col ${align === "horizontal" ? "lg:flex-row" : "lg:flex-row-reverse"}  items-center gap-12 lg:gap-20`}
+          className={`flex flex-col ${isHorizontal ? "lg:flex-row" : "lg:flex-row-reverse"}  items-center gap-12 lg:gap-20`}
         >
           {/* Left Column - Image with Decoration */}
-          <div className="flex-1 relative">
+          <motion.div
+            className="flex-1 relative"
+            initial={{ x: isHorizontal ? -100 : 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
             {/* Main Image Container */}
             <div className="relative z-10 border-0">
               <div className="relative rounded-xl md:rounded-3xl overflow-hidden shadow-2xl max-w-xl md:max-w-2xl object-cover group">
@@ -61,42 +70,57 @@ export const AboutUs = ({ align }: { align: "reverse" | "horizontal" }) => {
               <div className="text-gray-600 font-medium">Years Experience</div>
               <div className="w-12 h-1 bg-blue-200 rounded-full mt-2"></div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Content */}
           <div className="flex-1">
             {/* Section Heading */}
-            <SectionTitle
-              align="left"
-              heading="We're leading The Power Of Technology"
-              subheading="ABOUT US"
-            />
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <SectionTitle
+                align="left"
+                heading="We're leading The Power Of Technology"
+                subheading="ABOUT US"
+              />
+            </motion.div>
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 md:mb-12">
               {features.map((feature, index) => (
-                <div
+                <motion.div
                   key={feature.id}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-white hover:bg-blue-50 transition-all duration-300 group cursor-pointer"
-                  style={{ animationDelay: `${index * 150}ms` }}
+                  initial={{ x: isHorizontal ? 80 : -80, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                    delay: index * 0.15,
+                  }}
                 >
-                  {/* Icon */}
-                  <div className="shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                    <div className="text-primary group-hover:text-white transition-colors duration-300">
-                      {feature.icon}
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-white hover:bg-blue-50 transition-all duration-300 group cursor-pointer">
+                    {/* Icon */}
+                    <div className="shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                      <div className="text-primary group-hover:text-white transition-colors duration-300">
+                        {feature.icon}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors duration-300">
+                        {feature.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        {feature.description}
+                      </p>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors duration-300">
-                      {feature.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
