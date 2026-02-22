@@ -1,19 +1,8 @@
 "use client";
 
 import { SubmitEvent, useState } from "react";
-import {
-  Plus,
-  Upload,
-  MapPin,
-  User,
-  Star,
-  Building,
-  UserCog,
-  MessageSquare,
-} from "lucide-react";
+import { Plus } from "lucide-react";
 import Modal from "@/components/ui/modal";
-import Input from "@/components/ui/input";
-import Textarea from "@/components/ui/textarea";
 import { uploadImage } from "@/lib/upload-image";
 import Swal from "sweetalert2";
 import { addReview } from "@/lib/actions/review-control";

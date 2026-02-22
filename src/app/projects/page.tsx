@@ -1,9 +1,8 @@
-export const revalidate = 86400; // 24 hours
+export const dynamic = "force-dynamic";
 
 import ProjectsCard from "@/components/projects-card";
 import SectionTitle from "@/components/ui/section-title";
 import { getAllProjects } from "@/lib/actions/projects-control";
-// import ProjectsBannerSection from "./projects-banner";
 import projectsBanner from "@/assets/projects-banner.jpg";
 import Banner from "@/components/banner";
 

@@ -1,4 +1,4 @@
-export const revalidate = 86400; // 24 hours
+export const dynamic = "force-dynamic";
 
 import Hero from "@/app/(Home)/hero";
 import Services from "@/app/(Home)/services";

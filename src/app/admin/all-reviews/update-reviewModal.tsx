@@ -1,19 +1,8 @@
 "use client";
-import Input from "@/components/ui/input";
 import Modal from "@/components/ui/modal";
-import Textarea from "@/components/ui/textarea";
 import { useAuth } from "@/context/auth.context";
 import { updateReview } from "@/lib/actions/review-control";
 import { uploadImage } from "@/lib/upload-image";
-import {
-  Upload,
-  MapPin,
-  User,
-  Star,
-  Building,
-  UserCog,
-  MessageSquare,
-} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SubmitEvent, useState } from "react";
 import { Testimonial } from "@/lib/type";

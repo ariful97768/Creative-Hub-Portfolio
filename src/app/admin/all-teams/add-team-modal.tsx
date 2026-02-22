@@ -1,9 +1,7 @@
 "use client";
 import { SubmitEvent, useState } from "react";
-import { Plus, Upload, FileText, User } from "lucide-react";
+import { Plus } from "lucide-react";
 import Modal from "@/components/ui/modal";
-import Input from "@/components/ui/input";
-import Textarea from "@/components/ui/textarea";
 import Swal from "sweetalert2";
 import { useAuth } from "@/context/auth.context";
 import { useRouter } from "next/navigation";

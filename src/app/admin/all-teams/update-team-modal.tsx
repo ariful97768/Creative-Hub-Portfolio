@@ -1,10 +1,8 @@
 "use client";
-import Input from "@/components/ui/input";
+
 import Modal from "@/components/ui/modal";
-import Textarea from "@/components/ui/textarea";
 import { useAuth } from "@/context/auth.context";
 import { uploadImage } from "@/lib/upload-image";
-import { Upload, User, FileText } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SubmitEvent, useState } from "react";
 import { Team } from "@/lib/type";
