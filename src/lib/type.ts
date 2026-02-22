@@ -37,7 +37,7 @@ export type Project = {
   createdAt?: string;
 };
 
-export type UserRole = "Team" | "Admin" | "Unauthorized";
+export type UserRole = "Team" | "Admin" | "User";
 
 export type User = {
   name: string;

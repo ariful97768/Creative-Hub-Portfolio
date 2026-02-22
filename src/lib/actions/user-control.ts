@@ -45,7 +45,7 @@ export async function oAuthSignin({
       email: email.toString(),
       image: image.toString(),
       firebaseUid: firebaseUid.toString(),
-      role: "Unauthorized" as UserRole,
+      role: "User" as UserRole,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };

@@ -117,7 +117,7 @@ export async function updateReview({
 
     const result = await testimonials.updateOne(
       { _id: new ObjectId(id) },
-      { $set: data },
+      { $set: { ...data, updatedAt: new Date().toISOString() } },
     );
     if (result.modifiedCount) {
       return { success: true, data: result.modifiedCount };

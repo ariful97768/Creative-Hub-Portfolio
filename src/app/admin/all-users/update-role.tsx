@@ -7,7 +7,7 @@ import { useAuth } from "@/context/auth.context";
 import { useRouter } from "next/navigation";
 import { updateUserRoleById } from "@/lib/actions/user-control";
 
-const roles: UserRole[] = ["Admin", "Team", "Unauthorized"];
+const roles: UserRole[] = ["Admin", "Team", "User"];
 
 export default function UpdateRole({
   id,

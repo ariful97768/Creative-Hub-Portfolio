@@ -114,7 +114,7 @@ export async function updateProject({
 
     const result = await projects.updateOne(
       { _id: new ObjectId(id) },
-      { $set: data },
+      { $set: { ...data, updatedAt: new Date().toISOString() } },
     );
     if (result.modifiedCount) {
       return { success: true, data: result.modifiedCount };
