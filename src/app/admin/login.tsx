@@ -85,7 +85,7 @@ export default function Login() {
           <Input
             placeholder="Password"
             type="password"
-            min={6}
+            minLength={6}
             required
             name="password"
             label="Password"
