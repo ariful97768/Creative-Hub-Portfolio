@@ -26,7 +26,13 @@ export default async function TeamSection() {
       />
 
       {/* Carousel using Swiper.js */}
-      <CarouselComponent teamMembers={team} />
+      {team.length > 0 ? (
+        <CarouselComponent teamMembers={team} />
+      ) : (
+        <p className="text-gray-400 text-center py-10">
+          No team members to show yet.
+        </p>
+      )}
     </section>
   );
 }

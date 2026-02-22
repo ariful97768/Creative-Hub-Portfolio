@@ -28,18 +28,24 @@ export default async function ProjectsSection() {
           </Link>
         </div>
         <div className="flex flex-col md:flex-row sm:max-w-max md:max-w-full mx-auto align-normal gap-6 justify-center">
-          {projects.map((project, index) => (
-            <ProjectsCard
-              key={project._id.toString()}
-              title={project.title}
-              technologies={project.technologies}
-              link={project.link}
-              description={project.description}
-              location={project.clientCountry}
-              img={project.image}
-              bgColor={index % 2 === 0 ? "#FFF3F3" : "#E8FBFF"}
-            />
-          ))}
+          {projects.length > 0 ? (
+            projects.map((project, index) => (
+              <ProjectsCard
+                key={project._id.toString()}
+                title={project.title}
+                technologies={project.technologies}
+                link={project.link}
+                description={project.description}
+                location={project.clientCountry}
+                img={project.image}
+                bgColor={index % 2 === 0 ? "#FFF3F3" : "#E8FBFF"}
+              />
+            ))
+          ) : (
+            <p className="text-gray-400 text-center py-10 w-full">
+              No projects to show yet.
+            </p>
+          )}
         </div>
       </div>
     </section>

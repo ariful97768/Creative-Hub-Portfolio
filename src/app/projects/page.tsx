@@ -27,20 +27,26 @@ export default async function Projects() {
           heading="We have completed many projects for our clients"
         />
         <div className="mx-auto mt-6 gap-6 justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 lg:gap-10 justify-center">
-            {projects.data.map((project, index) => (
-              <ProjectsCard
-                key={project._id.toString()}
-                title={project.title}
-                technologies={project.technologies}
-                link={project.link}
-                description={project.description}
-                location={project.clientCountry}
-                img={project.image}
-                bgColor={index % 2 === 0 ? "#FFF3F3" : "#E8FBFF"}
-              />
-            ))}
-          </div>
+          {projects.data.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 lg:gap-10 justify-center">
+              {projects.data.map((project, index) => (
+                <ProjectsCard
+                  key={project._id.toString()}
+                  title={project.title}
+                  technologies={project.technologies}
+                  link={project.link}
+                  description={project.description}
+                  location={project.clientCountry}
+                  img={project.image}
+                  bgColor={index % 2 === 0 ? "#FFF3F3" : "#E8FBFF"}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-400 text-center py-16">
+              No projects to show yet.
+            </p>
+          )}
         </div>
       </section>
     </main>

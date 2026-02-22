@@ -1,6 +1,6 @@
 import SectionTitle from "@/components/ui/section-title";
 import TestimonialCarousel from "@/components/testimonial-carousel";
-import getDb from "@/lib/db"; 
+import getDb from "@/lib/db";
 
 export default async function Testimonials() {
   const db = await getDb();
@@ -31,7 +31,13 @@ export default async function Testimonials() {
           subheading="Testimonial"
         />
       </div>
-      <TestimonialCarousel testimonials={serialized} />
+      {serialized.length > 0 ? (
+        <TestimonialCarousel testimonials={serialized} />
+      ) : (
+        <p className="text-gray-400 text-center py-10">
+          No testimonials to show yet.
+        </p>
+      )}
     </section>
   );
 }

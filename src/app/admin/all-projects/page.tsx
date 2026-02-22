@@ -19,14 +19,20 @@ export default async function AllProjectsPage() {
       <div className="flex justify-end my-10 px-10">
         <AddProjectModal />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 px-5 md:px-10">
-        {projects.data.map((project) => (
-          <ProjectItem
-            key={project._id.toString()}
-            project={{ ...project, _id: project._id.toString() }}
-          />
-        ))}
-      </div>
+      {projects.data.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 px-5 md:px-10">
+          {projects.data.map((project) => (
+            <ProjectItem
+              key={project._id.toString()}
+              project={{ ...project, _id: project._id.toString() }}
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-400 text-center py-16">
+          No projects yet. Click the button above to add one.
+        </p>
+      )}
     </section>
   );
 }

@@ -18,14 +18,20 @@ export default async function AllReviewsPage() {
       <div className="flex justify-end my-10 px-10">
         <AddReviewModal />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-5">
-        {reviews.data.map((review) => (
-          <ReviewItem
-            key={review._id.toString()}
-            review={{ ...review, _id: review._id.toString() }}
-          />
-        ))}
-      </div>
+      {reviews.data.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-5">
+          {reviews.data.map((review) => (
+            <ReviewItem
+              key={review._id.toString()}
+              review={{ ...review, _id: review._id.toString() }}
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-400 text-center py-16">
+          No reviews yet. Click the button above to add one.
+        </p>
+      )}
     </section>
   );
 }

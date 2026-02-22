@@ -18,14 +18,20 @@ export default async function AllTeamsPage() {
       <div className="flex justify-end my-10 px-10">
         <AddTeamModal />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-10">
-        {result.data.map((team) => (
-          <TeamItem
-            key={team._id.toString()}
-            team={{ ...team, _id: team._id.toString() }}
-          />
-        ))}
-      </div>
+      {result.data.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-10">
+          {result.data.map((team) => (
+            <TeamItem
+              key={team._id.toString()}
+              team={{ ...team, _id: team._id.toString() }}
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-400 text-center py-16">
+          No team members yet. Click the button above to add one.
+        </p>
+      )}
     </section>
   );
 }
