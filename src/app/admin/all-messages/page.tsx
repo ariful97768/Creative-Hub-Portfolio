@@ -40,7 +40,7 @@ export default async function AllMessagesPage() {
                 className="bg-white border border-gray-200 max-w-md w-full rounded-2xl p-6 shadow-lg hover:shadow-md transition-shadow duration-300"
               >
                 {/* Header: Name + Actions */}
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between mb-2 sm:mb-4">
                   <div className="flex items-center gap-3">
                     {/* Avatar */}
                     <div className="w-11 h-11 rounded-full bg-linear-to-br from-primary/80 to-accent/80 flex items-center justify-center text-white font-bold text-lg shrink-0">
@@ -52,8 +52,8 @@ export default async function AllMessagesPage() {
                         {message.first_name} {message.last_name}
                       </h3>
                       {message.createdAt && (
-                        <div className="flex items-center gap-1.5 text-xs text-gray-400 mt-0.5">
-                          <Clock size={12} />
+                        <div className="sm:flex hidden items-center gap-1.5 text-xs text-gray-400 mt-0.5">
+                          <Clock className="shrink-0" size={12} />
                           <time>
                             {new Date(message.createdAt).toLocaleDateString(
                               "en-US",
@@ -73,9 +73,24 @@ export default async function AllMessagesPage() {
                   </div>
                   <DeleteMessage id={message._id} />
                 </div>
+                {message.createdAt && (
+                  <div className="sm:hidden mb-4 flex items-center gap-1.5 text-xs text-gray-400 mt-0.5">
+                    <Clock className="shrink-0" size={12} />
+                    <time>
+                      {new Date(message.createdAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        timeZone: "Asia/Dhaka",
+                      })}
+                    </time>
+                  </div>
+                )}
 
                 {/* Contact info */}
-                <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4 text-sm">
+                <div className="flex flex-wrap gap-x-6 gap-y-2 mb-4 text-sm break-all">
                   <a
                     href={`mailto:${message.email}`}
                     className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors"
@@ -87,7 +102,7 @@ export default async function AllMessagesPage() {
                     href={`tel:${message.phone}`}
                     className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors"
                   >
-                    <Phone size={15} className="text-primary/60" />
+                    <Phone size={15} className="text-primary/60 shrink-0" />
                     {message.phone}
                   </a>
                 </div>

@@ -42,8 +42,8 @@ export default function Input({
         defaultValue={defaultValue}
         value={value}
         required={required}
-        max={max}
-        min={min}
+        maxLength={max}
+        minLength={min}
         onChange={onChange}
         className="w-full border border-gray-200 bg-gray-50 px-4 py-2.5 rounded-lg outline-none text-sm text-dark placeholder:text-gray-400 focus:border-primary/40 focus:ring-2 focus:ring-primary/10 focus:bg-white transition-all duration-200 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 file:cursor-pointer"
       />

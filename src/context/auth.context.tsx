@@ -1,9 +1,9 @@
 "use client";
 import auth from "@/lib/firebase.config";
 import {
-  GoogleAuthProvider,
   onAuthStateChanged,
-  signInWithPopup,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
   signOut,
   User,
   UserCredential,
@@ -17,24 +17,40 @@ interface AuthContextType {
   setUser: (user: User | null) => void;
   setLoader: (loading: boolean) => void;
   signOutUser: () => Promise<void>;
-  signInWithGoogle: () => Promise<UserCredential>;
+  signInWithEmailPassword: ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) => Promise<UserCredential>;
+  resetPassword: (email: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
-const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loader, setLoader] = useState(true);
   const [user, setUser] = useState<User | null>(null);
 
-  const signInWithGoogle = () => {
+  const signInWithEmailPassword = ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) => {
     setLoader(true);
-    return signInWithPopup(auth, provider);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const signOutUser = () => {
     setLoader(true);
     return signOut(auth);
+  };
+
+  const resetPassword = (email: string) => {
+    return sendPasswordResetEmail(auth, email);
   };
 
   useEffect(() => {
@@ -54,7 +70,8 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     loader,
     setUser,
     setLoader,
-    signInWithGoogle,
+    signInWithEmailPassword,
+    resetPassword,
     signOutUser,
   };
 

@@ -8,8 +8,8 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Star,
+  UserRound,
   Users,
-  UserStar,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -36,13 +36,13 @@ export default function DashboardSideMenu() {
       </div>
       <Link
         className="flex items-center gap-2 py-2 px-3 hover:bg-accent/15 text-sm md:text-lg rounded-md whitespace-nowrap"
-        href="/admin/all-users"
+        href="/admin/profile"
       >
-        <Users className="w-5 h-5 shrink-0" />
+        <UserRound className="w-5 h-5 shrink-0" />
         <span
           className={`transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}
         >
-          All Users
+          Profile
         </span>
       </Link>
       <Link
@@ -60,7 +60,7 @@ export default function DashboardSideMenu() {
         className="flex items-center gap-2 py-2 px-3 hover:bg-accent/15 text-sm md:text-lg rounded-md whitespace-nowrap"
         href="/admin/all-teams"
       >
-        <UserStar className="w-5 h-5 shrink-0" />
+        <Users className="w-5 h-5 shrink-0" />
         <span
           className={`transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}
         >

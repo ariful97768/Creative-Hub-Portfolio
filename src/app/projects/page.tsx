@@ -26,7 +26,7 @@ export default async function Projects() {
           subheading="Our Best Projects"
           heading="We have completed many projects for our clients"
         />
-        <div className="max-w-max mx-auto mt-6 gap-6 justify-center">
+        <div className="mx-auto mt-6 gap-6 justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 lg:gap-10 justify-center">
             {projects.data.map((project, index) => (
               <ProjectsCard

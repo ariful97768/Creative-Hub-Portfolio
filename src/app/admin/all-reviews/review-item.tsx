@@ -15,7 +15,7 @@ export default function ReviewItem({
 
   return (
     <div className="relative group">
-      <div className="z-10 gap-2 group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 flex absolute right-3 top-3">
+      <div className="z-10 gap-2 visible sm:group-hover:visible opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 flex absolute right-3 top-3">
         <button
           onClick={() => setIsOpen(true)}
           className="p-2 hover:bg-gray-600 transition-all duration-300 cursor-pointer rounded-full bg-gray-500"
