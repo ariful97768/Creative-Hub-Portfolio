@@ -63,10 +63,10 @@ export default function TeamForm({
           {action === "add"
             ? loading // Checks if action is add and loading is true
               ? "Adding..."
-              : "Add Project"
+              : "Add Team"
             : loading // Checks if action is update and loading is true
               ? "Updating..."
-              : "Update Project"}
+              : "Update Team"}
         </button>
       </div>
     </form>
