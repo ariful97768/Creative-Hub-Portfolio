@@ -49,7 +49,7 @@ export default function CarouselComponent({
         }}
       >
         {teamMembers.map((member, index) => (
-          <SwiperSlide key={index} className="py-5">
+          <SwiperSlide key={index} className="py-5 h-auto!">
             <TeamCard
               image={member.image}
               name={member.name}
