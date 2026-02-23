@@ -1,11 +1,13 @@
 "use client";
 import Input from "@/components/ui/input";
 import { useAuth } from "@/context/auth.context";
+import { checkAdminByEmail } from "@/lib/actions/user-control";
 import { SubmitEvent, useState } from "react";
 import Swal from "sweetalert2";
 
 export default function Login() {
-  const { signInWithEmailPassword, setUser, setLoader } = useAuth();
+  const { signInWithEmailPassword, setUser, setLoader, resetPassword } =
+    useAuth();
   const [isSigningIn, setIsSigningIn] = useState(false);
 
   const handleGoogleSignin = async (e: SubmitEvent<HTMLFormElement>) => {
@@ -68,6 +70,50 @@ export default function Login() {
     }
   };
 
+  const handleForgotPassword = async () => {
+    const { value: email } = await Swal.fire({
+      title: "Forgot Password",
+      input: "email",
+      inputLabel: "Enter your email address",
+      inputPlaceholder: "you@example.com",
+      showCancelButton: true,
+      confirmButtonText: "Send Reset Link",
+      confirmButtonColor: "#3b82f6",
+    });
+
+    if (email) {
+      try {
+        // Check if the email belongs to an admin user
+        const { isAdmin } = await checkAdminByEmail(email);
+        if (!isAdmin) {
+          Swal.fire({
+            icon: "error",
+            title: "Access Denied",
+            text: "Only admin users can reset their password from here.",
+          });
+          return;
+        }
+
+        await resetPassword(email);
+        Swal.fire({
+          icon: "success",
+          title: "Email Sent",
+          text: "A password reset link has been sent to your email.",
+        });
+      } catch (error) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Something went wrong";
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: errorMessage.includes("auth/user-not-found")
+            ? "No account found with this email."
+            : errorMessage,
+        });
+      }
+    }
+  };
+
   return (
     <section className="flex flex-col items-center justify-center h-[calc(100vh-246px)]">
       <div className="w-full max-w-md mx-auto">
@@ -92,8 +138,16 @@ export default function Login() {
           />
 
           <button
+            type="button"
+            onClick={handleForgotPassword}
+            className="text-primary text-sm text-right hover:underline cursor-pointer -mt-3"
+          >
+            Forgot Password?
+          </button>
+
+          <button
             type="submit"
-            className="bg-primary mt-5 text-white px-5 py-2 rounded-md"
+            className="bg-primary text-white px-5 py-2 rounded-md"
           >
             Sign In
           </button>

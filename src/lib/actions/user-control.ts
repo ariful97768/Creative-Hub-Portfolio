@@ -157,11 +157,27 @@ export async function updateUserRoleById({
       return { success: false, error: "Admin can't update themselves" };
     }
 
-    const usersData = await users.updateOne({ _id: new ObjectId(id) }, { $set: { role, updatedAt: new Date().toISOString() } });
+    const usersData = await users.updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { role, updatedAt: new Date().toISOString() } },
+    );
     return { success: true, data: usersData };
   } catch (error) {
     const msg =
       error instanceof Error ? error.message : "An unknown error occurred";
     return { success: false, error: msg };
+  }
+}
+
+// Check if a user with the given email has the Admin role
+export async function checkAdminByEmail(
+  email: string,
+): Promise<{ isAdmin: boolean }> {
+  try {
+    const { users } = await getDb();
+    const admin = await users.findOne({ email, role: "Admin" });
+    return { isAdmin: !!admin };
+  } catch {
+    return { isAdmin: false };
   }
 }
