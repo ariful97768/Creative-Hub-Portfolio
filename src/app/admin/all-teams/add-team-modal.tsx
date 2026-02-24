@@ -38,7 +38,7 @@ export default function AddTeamModal() {
         return;
       }
 
-      // Upload image to imgbb using uploadImage function.
+      // Upload image to Cloudinary using uploadImage function.
       // It sends data to /api/upload-image route, and then backend handles the upload process.
       const imageUrl = await uploadImage(data.image);
       if (!imageUrl.success) {

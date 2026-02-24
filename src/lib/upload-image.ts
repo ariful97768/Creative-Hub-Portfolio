@@ -44,7 +44,7 @@ export async function uploadImage(image: File): Promise<
     return {
       success: true,
       message: "Image uploaded successfully",
-      data: { url: data.data.data.url, time: data.data.data.time },
+      data: { url: data.data.url, time: data.data.time },
     };
   } catch (error) {
     const msg =
