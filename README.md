@@ -8,12 +8,13 @@
 
 This project was developed as a **technical assessment task** for a development agency. The primary objective was to convert a provided **Figma design (Desktop Version)** into a pixel-perfect, functional React application using Next.js.
 
-**Live Demo:** [https://creative-hub-it-portfolio.vercel.app/](https://creative-hub-it-portfolio.vercel.app/)
+**Live Demo:** [https://creative-hub-it-portfolio.vercel.app/](https://creative-hub-it-portfolio.vercel.app/) & [http://creativehubit.com.bd/](http://creativehubit.com.bd/)
+
 
 ## ✨ Key Features
 
--   **Pixel-Perfect Implementation:** Faithful recreation of the provided Figma design for desktop view.
--   **Modern Tech Stack:** Built with the latest Next.js 14+ (App Router) and TypeScript for type safety.
+-   **Pixel-Perfect Implementation:** Faithful recreation of the provided Figma design for desktop view, Made responsive by my own.
+-   **Modern Tech Stack:** Built with the latest Next.js 16+ (App Router) and TypeScript for type safety.
 -   **Responsive Layout:** Adapted for various screen sizes using Tailwind CSS.
 -   **Dynamic Sections:**
     -   **Hero Section:** Engaging landing area with call-to-actions.
@@ -25,10 +26,13 @@ This project was developed as a **technical assessment task** for a development 
 
 ## 🛠️ Tech Stack
 
--   **Framework:** Next.js 
+-   **Framework:** Next.js 16+
 -   **Language:** TypeScript 
 -   **Styling:** Tailwind CSS 
--   **Icons:** React Icons / Lucide React
+-   **Icons:** Lucide React
+-   **Database:** MongoDB 
+-   **Image hosting:** Vercel
+-   **Email notification:** Nodemailer
 -   **Deployment:** Vercel
 
 ## 📂 Project Structure
@@ -37,18 +41,20 @@ This project was developed as a **technical assessment task** for a development 
 ├── public/          # Static assets (images, icons)
 ├── src/
 │   ├── app/         # Next.js App Router pages
+│   └── assets/      # Website resources such as images
 │   ├── components/  # Reusable UI components (Hero, Navbar, Footer, etc.)
-│   ├── data/        # Mock data for services and projects
-│   └── styles/      # Global styles and Tailwind config
+│   └── context/     # Firebase authentication context
+│   └── lib/         # Database, Nodemailer and Firebase configuration
+│   └── lib/actions  # Actions and controllers
 ├── .eslintrc.json   # Linting configuration
 ├── next.config.ts   # Next.js configuration
 ├── tailwind.config.ts # Tailwind CSS configuration
 └── tsconfig.json    # TypeScript configuration
 ```
 ## 📝 Assessment Context
-This project was submitted as a solution to a frontend development challenge.
+This project was submitted and Accepted as a solution to a frontend development challenge.
 
-- **Constraint:** Focus on Desktop Design implementation from Figma.
+- **Constraint:** Focus on Desktop Design implementation from Figma and building complete website for the agency identity.
 - **Goal:** Demonstrate proficiency in component-based architecture, styling precision, and Next.js best practices.
 --------
-Designed & Developed by **Ariful Islam**
+Developed by **Ariful Islam**
