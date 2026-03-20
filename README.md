@@ -31,7 +31,7 @@ This project was developed as a **technical assessment task** for a development 
 -   **Styling:** Tailwind CSS 
 -   **Icons:** Lucide React
 -   **Database:** MongoDB 
--   **Image hosting:** Vercel
+-   **Image hosting:** Cloudinary
 -   **Email notification:** Nodemailer
 -   **Deployment:** Vercel
 
