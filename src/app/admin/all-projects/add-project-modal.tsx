@@ -27,9 +27,15 @@ export default function AddProjectModal() {
         image: formData.get("image") as File,
         clientCountry: formData.get("country") as string,
         title: formData.get("title") as string,
-        technologies: (formData.get("technologies") as string).split(","),
+        technologies: (formData.get("technologies") as string)
+          .split(",")
+          .map((tech) => tech.trim())
+          .filter((tech) => tech.length > 0),
         link: formData.get("link") as string,
         description: formData.get("description") as string,
+        category: (formData.get("category") as string)?.trim() || undefined,
+        duration: (formData.get("duration") as string)?.trim() || undefined,
+        metric: (formData.get("metric") as string)?.trim() || undefined,
       };
 
       if (!data.image) {

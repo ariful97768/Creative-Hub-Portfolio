@@ -75,17 +75,17 @@ export default function ContactUsFormSection() {
           <div className="text-sm grow sm:text-base space-y-5 sm:space-y-8 md:space-y-8">
             <p className="flex items-center gap-2 sm:gap-6">
               <PhoneCall size={24} className="shrink-0 text-accent" />
-              <Link href={"tel:+08801607304149"}>+08801607304149</Link>
+              <Link href={"tel:+08801712345678"}>+08801712345678</Link>
             </p>
             <p className="flex items-center gap-2 sm:gap-6">
               <Mail size={24} className="shrink-0 text-accent" />
-              <Link href={"mailto:mdshakilmirja701@gmail.com "}>
-                mdshakilmirja701@gmail.com
+              <Link href={"mailto:contact@agency.com"}>
+                contact@agency.com
               </Link>
             </p>
             <p className="flex items-center gap-2 sm:gap-6">
               <MapPin size={24} className="shrink-0 text-accent" />
-              <span>Dhaka Uttara, #1201, Sector: #03</span>
+              <span>Dhaka Uttara, #4234, Sector: #99</span>
             </p>
           </div>
           <div className="flex mt-8 gap-4">

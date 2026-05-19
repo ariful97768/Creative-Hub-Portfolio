@@ -36,6 +36,9 @@ export default function ProjectItem({
         img={project.image}
         bgColor={"#E8FBFF"}
         technologies={project.technologies}
+        category={project.category}
+        duration={project.duration}
+        metric={project.metric}
       />
 
       {/* Update modal */}

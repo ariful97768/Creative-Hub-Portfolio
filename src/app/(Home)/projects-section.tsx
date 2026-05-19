@@ -27,7 +27,7 @@ export default async function ProjectsSection() {
             </Button>
           </Link>
         </div>
-        <div className="flex flex-col md:flex-row sm:max-w-max md:max-w-full mx-auto align-normal gap-6 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-max mx-auto justify-center gap-6 lg:gap-10">
           {projects.length > 0 ? (
             projects.map((project, index) => (
               <ProjectsCard
@@ -39,6 +39,9 @@ export default async function ProjectsSection() {
                 location={project.clientCountry}
                 img={project.image}
                 bgColor={index % 2 === 0 ? "#FFF3F3" : "#E8FBFF"}
+                category={project.category}
+                duration={project.duration}
+                metric={project.metric}
               />
             ))
           ) : (

@@ -23,7 +23,7 @@ export async function sendEmail({
   html: string;
 }) {
   const info = await transporter.sendMail({
-    from: "arifulxf@gmail.com",
+    from: process.env.SMTP_USER,
     to,
     subject,
     text,

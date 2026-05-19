@@ -35,9 +35,15 @@ export default function UpdateProjectModal({
       const imageFile = formData.get("image") as File;
       const clientCountry = formData.get("country") as string;
       const title = formData.get("title") as string;
-      const technologies = (formData.get("technologies") as string).split(",");
+      const technologies = (formData.get("technologies") as string)
+        .split(",")
+        .map((t) => t.trim())
+        .filter((t) => t.length > 0);
       const link = formData.get("link") as string;
       const description = formData.get("description") as string;
+      const category = (formData.get("category") as string)?.trim() || "";
+      const duration = (formData.get("duration") as string)?.trim() || "";
+      const metric = (formData.get("metric") as string)?.trim() || "";
 
       if (!user || !user.email) {
         throw new Error(
@@ -52,14 +58,19 @@ export default function UpdateProjectModal({
       if (title !== data.title) updateData.title = title;
 
       // Technologies is an array of string store on db. So we must convert it to a string before checking.
-      // `technologies.join(",")` this converts the values from input to a string
-      // `data.technologies.join(",")` this converts the data came from db to a string
       if (technologies.join(",") !== data.technologies.join(","))
         updateData.technologies = technologies;
 
       if (link !== data.link) updateData.link = link;
       if (description !== data.description)
         updateData.description = description;
+
+      if (category !== (data.category || ""))
+        updateData.category = category || null;
+      if (duration !== (data.duration || ""))
+        updateData.duration = duration || null;
+      if (metric !== (data.metric || ""))
+        updateData.metric = metric || null;
 
       // Handle image upload if a new file is selected
       if (imageFile && imageFile.size > 0) {

@@ -39,6 +39,9 @@ export default async function Projects() {
                   location={project.clientCountry}
                   img={project.image}
                   bgColor={index % 2 === 0 ? "#FFF3F3" : "#E8FBFF"}
+                  category={project.category}
+                  duration={project.duration}
+                  metric={project.metric}
                 />
               ))}
             </div>

@@ -35,6 +35,9 @@ export type Project = {
   clientCountry: string;
   technologies: string[];
   createdAt?: string;
+  duration?: string;
+  metric?: string;
+  category?: string;
 };
 
 export type UserRole = "Team" | "Admin" | "User";

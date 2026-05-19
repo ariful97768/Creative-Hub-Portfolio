@@ -7,6 +7,9 @@ import {
   FileText,
   MapPin,
   Link as LinkIcon,
+  Tag,
+  Calendar,
+  TrendingUp,
 } from "lucide-react";
 import Textarea from "../ui/textarea";
 import { Project } from "@/lib/type";
@@ -64,6 +67,36 @@ export default function ProjectForm({
         name="technologies"
         placeholder="React.js, Node.js, Express.js, MongoDB..."
         icon={Code}
+      />
+      {/* Category */}
+      <Input
+        required={false}
+        defaultValue={defaultValue?.category}
+        type="text"
+        label="Project Category (Optional - defaults to auto-generated category)"
+        name="category"
+        placeholder="E-Commerce, Full-Stack, Web App"
+        icon={Tag}
+      />
+      {/* Duration */}
+      <Input
+        required={false}
+        defaultValue={defaultValue?.duration}
+        type="text"
+        label="Project Duration (Optional - defaults to 2-3 Months)"
+        name="duration"
+        placeholder="3 Months, 6 Weeks"
+        icon={Calendar}
+      />
+      {/* Key Metric */}
+      <Input
+        required={false}
+        defaultValue={defaultValue?.metric}
+        type="text"
+        label="Key Result Metric (Optional - defaults to SEO / Page Speed stats)"
+        name="metric"
+        placeholder="+180% Page Speed, 99.9% Uptime"
+        icon={TrendingUp}
       />
       {/* Project Link */}
       <Input
